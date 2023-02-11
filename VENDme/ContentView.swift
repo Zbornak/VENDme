@@ -36,36 +36,31 @@ struct ContentView: View {
                 Image(vendingMachine.mainPicture)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 500)
                 
                 HStack {
                     Image(vendingMachine.mainPicture)
                         .resizable()
                         .border(.black, width: 3)
                         .cornerRadius(10)
-                        .frame(width: 80, height: 60)
-                        .padding(.top)
+                        .frame(width: 70, height: 50)
                     
                     Image(vendingMachine.picture2)
                         .resizable()
                         .border(.black, width: 1)
                         .cornerRadius(10)
-                        .frame(width: 80, height: 60)
-                        .padding(.top)
+                        .frame(width: 70, height: 50)
                     
                     Image(vendingMachine.picture3)
                         .resizable()
                         .border(.black, width: 1)
                         .cornerRadius(10)
-                        .frame(width: 80, height: 60)
-                        .padding(.top)
+                        .frame(width: 70, height: 50)
                     
                     Image(vendingMachine.picture4)
                         .resizable()
                         .border(.black, width: 1)
                         .cornerRadius(10)
-                        .frame(width: 80, height: 60)
-                        .padding(.top)
+                        .frame(width: 70, height: 50)
                 }
                 
                 VStack {

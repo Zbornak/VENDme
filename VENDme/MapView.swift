@@ -16,12 +16,26 @@ struct MapView: View {
         span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
     )
     
+    @State var useUserLocation = false
+    
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: vendingMachines.machines) { vendingMachine in
-            MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
-                NavigationLink(destination: ContentView(vendingMachine: vendingMachine)) {
-                    Image(systemName: "lightswitch.off")
-                        .frame(width: 20, height: 20)
+        VStack {
+            HStack {
+                Button {
+                    useUserLocation.toggle()
+                } label: {
+                    Label("Use my location", systemImage: useUserLocation ? "location.circle.fill" : "location.circle")
+                }
+                .padding(.leading)
+                Spacer()
+            }
+            
+            Map(coordinateRegion: $region, annotationItems: vendingMachines.machines) { vendingMachine in
+                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
+                    NavigationLink(destination: ContentView(vendingMachine: vendingMachine)) {
+                        Image(systemName: "lightswitch.off")
+                            .frame(width: 20, height: 20)
+                    }
                 }
             }
         }
