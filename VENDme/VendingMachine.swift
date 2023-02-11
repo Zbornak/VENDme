@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct VendingMachine: Identifiable, Codable {
+struct VendingMachine: Decodable, Identifiable {
     let id: Int
     let name: String
     let street: String

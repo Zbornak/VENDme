@@ -9,25 +9,31 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
-    @State private var searchText = ""
-    @State private var region = MKCoordinateRegion(
+    var vendingMachines: VendingMachines
+    
+    @State var searchText = ""
+    
+    @State var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
         span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
     )
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Map(coordinateRegion: $region)
+            Map(coordinateRegion: $region, annotationItems: vendingMachines.machines) { vendingMachine in
+                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
+                    Image(systemName: "lightswitch.off")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .shadow(radius: 5)
+                }
             }
             .navigationTitle("Locations")
-        }
-        .searchable(text: $searchText)
+            .searchable(text: $searchText)
     }
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
+        MapView(vendingMachines: VendingMachines())
     }
 }

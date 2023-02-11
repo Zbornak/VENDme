@@ -9,11 +9,13 @@ import SwiftUI
 
 @main
 struct VENDmeApp: App {
+    @StateObject var vendingMachines = VendingMachines()
+    
     var body: some Scene {
         WindowGroup {
             TabView {
                 NavigationView {
-                    ContentView(vendingMachine: VendingMachines().primary)
+                    ContentView(vendingMachine: vendingMachines.primary)
                 }
                 .tabItem {
                     Image(systemName: "lightswitch.off")
@@ -21,13 +23,14 @@ struct VENDmeApp: App {
                 }
                 
                 NavigationView {
-                    MapView()
+                    MapView(vendingMachines: vendingMachines)
                 }
                 .tabItem {
                     Image(systemName: "location.magnifyingglass")
                     Text("Locations")
                 }
             }
+            .environmentObject(vendingMachines)
         }
     }
 }
