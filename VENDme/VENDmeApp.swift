@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct VENDmeApp: App {
     @StateObject var vendingMachines = VendingMachines()
+    @State var searchText = ""
     
     var body: some Scene {
         WindowGroup {
@@ -26,6 +27,7 @@ struct VENDmeApp: App {
                     //MapView()
                     MapView(vendingMachines: vendingMachines)
                 }
+                .searchable(text: $searchText)
                 .tabItem {
                     Image(systemName: "location.magnifyingglass")
                     Text("Locations")
