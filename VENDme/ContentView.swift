@@ -33,12 +33,10 @@ struct ContentView: View {
     
     var body: some View {
             VStack {
-                GeometryReader { geo in
-                    Image(vendingMachine.mainPicture)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: geo.size.width * 1.0)
-                }
+                Image(vendingMachine.mainPicture)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 500)
                 
                 HStack {
                     Image(vendingMachine.mainPicture)
