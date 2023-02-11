@@ -36,7 +36,6 @@ struct ContentView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: geo.size.width * 1.0)
-                        .ignoresSafeArea()
                 }
                 
                 HStack {
@@ -45,24 +44,28 @@ struct ContentView: View {
                         .border(.black, width: 3)
                         .cornerRadius(10)
                         .frame(width: 80, height: 60)
+                        .padding(.top)
                     
                     Image("example_vm_2")
                         .resizable()
                         .border(.black, width: 1)
                         .cornerRadius(10)
                         .frame(width: 80, height: 60)
+                        .padding(.top)
                     
                     Image("example_vm_3")
                         .resizable()
                         .border(.black, width: 1)
                         .cornerRadius(10)
                         .frame(width: 80, height: 60)
+                        .padding(.top)
                     
                     Image("example_vm_4")
                         .resizable()
                         .border(.black, width: 1)
                         .cornerRadius(10)
                         .frame(width: 80, height: 60)
+                        .padding(.top)
                 }
                 
                 VStack {
