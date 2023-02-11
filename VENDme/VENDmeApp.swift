@@ -23,6 +23,7 @@ struct VENDmeApp: App {
                 }
                 
                 NavigationView {
+                    //MapView()
                     MapView(vendingMachines: vendingMachines)
                 }
                 .tabItem {

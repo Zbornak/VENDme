@@ -9,6 +9,7 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
+    //@EnvironmentObject var vendingMachines: VendingMachines
     var vendingMachines: VendingMachines
     
     //@State var searchText = ""
@@ -31,6 +32,7 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
+        //MapView()
         MapView(vendingMachines: VendingMachines())
     }
 }
