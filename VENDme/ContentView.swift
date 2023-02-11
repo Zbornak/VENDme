@@ -11,7 +11,6 @@ struct ContentView: View {
     
     let vendingMachine: VendingMachine
     
-    //decides which image to use depending on what the VM sells
     func typeImageChoice() -> String {
         if vendingMachine.type == "Food" {
             return "popcorn.fill"

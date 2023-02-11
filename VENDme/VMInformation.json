@@ -42,7 +42,6 @@
     {
         "id": 3,
         "name": "TheVend",
-        "address": {
         "street": "45 Rockerfeller Plaza",
         "city": "New York City",
         "region": "New York",
@@ -83,7 +82,6 @@
     {
         "id": 5,
         "name": "Two Four",
-        "address": {
         "street": "Alley 28, Lane 20, Fengjia Road",
         "city": "Xitun",
         "region": "Taichung",
@@ -100,5 +98,5 @@
         "picture2": "xitun_vm_2",
         "picture3": "xitun_vm_3",
         "picture4": "xitun_vm_4"
-    }
+    },
 ]
