@@ -8,59 +8,62 @@
 import SwiftUI
 
 struct ContentView: View {
-//decides which image to use depending on what the VM sells
-//    func typeImageChoice() -> String {
-//        if vendingMachine.type == "Food" {
-//            return "popcorn.fill"
-//        } else if vendingMachine.type == "Drinks" {
-//            return "mug.fill"
-//        } else if vendingMachine.type == "Clothing" {
-//            return "tshirt.fill"
-//        } else if vendingMachine.type == "Household" {
-//            return "house.fill"
-//        } else if vendingMachine.type == "Toys" {
-//            return "teddybear.fill"
-//        } else if vendingMachine.type == "Gadgets" {
-//            return "headphones"
-//        } else if vendingMachine.type == "Memorabilia" {
-//            return "theatermasks.fill"
-//        } else {
-//            return "person.fill.questionmark"
-//        }
-//    }
+    
+    let vendingMachine: VendingMachine
+    
+    //decides which image to use depending on what the VM sells
+    func typeImageChoice() -> String {
+        if vendingMachine.type == "Food" {
+            return "popcorn.fill"
+        } else if vendingMachine.type == "Drinks" {
+            return "mug.fill"
+        } else if vendingMachine.type == "Clothing" {
+            return "tshirt.fill"
+        } else if vendingMachine.type == "Household" {
+            return "house.fill"
+        } else if vendingMachine.type == "Toys" {
+            return "teddybear.fill"
+        } else if vendingMachine.type == "Gadgets" {
+            return "headphones"
+        } else if vendingMachine.type == "Memorabilia" {
+            return "theatermasks.fill"
+        } else {
+            return "person.fill.questionmark"
+        }
+    }
     
     var body: some View {
             VStack {
                 GeometryReader { geo in
-                    Image("example_vm_1")
+                    Image(vendingMachine.mainPicture)
                         .resizable()
                         .scaledToFill()
                         .frame(width: geo.size.width * 1.0)
                 }
                 
                 HStack {
-                    Image("example_vm_1")
+                    Image(vendingMachine.mainPicture)
                         .resizable()
                         .border(.black, width: 3)
                         .cornerRadius(10)
                         .frame(width: 80, height: 60)
                         .padding(.top)
                     
-                    Image("example_vm_2")
+                    Image(vendingMachine.picture2)
                         .resizable()
                         .border(.black, width: 1)
                         .cornerRadius(10)
                         .frame(width: 80, height: 60)
                         .padding(.top)
                     
-                    Image("example_vm_3")
+                    Image(vendingMachine.picture3)
                         .resizable()
                         .border(.black, width: 1)
                         .cornerRadius(10)
                         .frame(width: 80, height: 60)
                         .padding(.top)
                     
-                    Image("example_vm_4")
+                    Image(vendingMachine.picture4)
                         .resizable()
                         .border(.black, width: 1)
                         .cornerRadius(10)
@@ -70,7 +73,7 @@ struct ContentView: View {
                 
                 VStack {
                     HStack {
-                        Text("Seventeen Ice")
+                        Text(vendingMachine.name)
                             .fontWeight(.bold)
                             .font(.largeTitle)
                         
@@ -78,15 +81,15 @@ struct ContentView: View {
                     Spacer()
                         
                     HStack {
-                        //if vendingMachine.inUse == true {
-                        Image(systemName: "checkmark")
-                        Text("In use")
-                            .fontWeight(.bold)
-                            //} else {
-                                //Image(systemName: "wrench.and.screwdriver.fill")
-                                //Text("Not in use")
-                                    //.fontWeight(.bold)
-                            //}
+                        if vendingMachine.inUse == true {
+                            Image(systemName: "checkmark")
+                            Text("In use")
+                                .fontWeight(.bold)
+                            } else {
+                                Image(systemName: "wrench.and.screwdriver.fill")
+                                Text("Not in use")
+                                    .fontWeight(.bold)
+                        }
                     }
                     .padding(5)
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(.black, lineWidth: 1))
@@ -94,7 +97,7 @@ struct ContentView: View {
                 }
                     
                 HStack {
-                    Text("Sapporo, Japan")
+                    Text("\(vendingMachine.city), \(vendingMachine.country)")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .padding(.bottom)
@@ -102,8 +105,8 @@ struct ContentView: View {
                     Spacer()
                         
                     HStack {
-                        Image(systemName: "popcorn.fill")
-                        Text("Food")
+                        Image(systemName: typeImageChoice())
+                        Text(vendingMachine.type)
                             .fontWeight(.bold)
                     }
                 }
@@ -133,7 +136,7 @@ struct ContentView: View {
                 
                 Form {
                     Section {
-                        Text("Selling various flavours of 'Seventeen Ice' ice-cream, including Crispy Strawberry, Choco Mille-Feuille, Custard Purin and Muscat. The brand has been around for decades and is exclusively sold in vending machines in shopping centres and train/bus stations.")
+                        Text(vendingMachine.description)
                     } header: {
                         Text("Description")
                     }
@@ -173,22 +176,22 @@ struct ContentView: View {
                     
                     Section {
                         Text("""
-                        3, Odorihigashi 1-Chōme
-                        Sapporo
-                        Hokkaido
-                        Japan
-                        060-0041
+                        \(vendingMachine.street)
+                        \(vendingMachine.city)
+                        \(vendingMachine.region)
+                        \(vendingMachine.country)
+                        \(vendingMachine.postcode)
                         """)
                     } header: {
                         Text("Address")
                     }
                     
-                    HStack {
-                        Text("Add to favourites")
-                        Image(systemName: "star")
-                        Spacer()
-                        Text("Report")
-                        Image(systemName: "exclamationmark.bubble")
+                HStack {
+                    Text("Add to favourites")
+                    Image(systemName: "star")
+                    Spacer()
+                    Text("Report")
+                    Image(systemName: "exclamationmark.bubble")
                 }
             }
         }
@@ -197,6 +200,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(vendingMachine: VendingMachine.example)
     }
 }

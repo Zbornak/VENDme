@@ -12,7 +12,7 @@ struct VENDmeApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                ContentView(vendingMachine: VendingMachine.example)
             }
         }
     }
