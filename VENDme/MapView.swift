@@ -27,7 +27,6 @@ struct MapView: View {
                         .frame(width: 20, height: 20)
                 }
             }
-            .navigationTitle("Locations")
             .searchable(text: $searchText)
         }
     }
