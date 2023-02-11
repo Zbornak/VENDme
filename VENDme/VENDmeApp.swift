@@ -11,8 +11,22 @@ import SwiftUI
 struct VENDmeApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                ContentView(vendingMachine: VendingMachines().primary)
+            TabView {
+                NavigationView {
+                    ContentView(vendingMachine: VendingMachines().primary)
+                }
+                .tabItem {
+                    Image(systemName: "lightswitch.off")
+                    Text("Discover")
+                }
+                
+                NavigationView {
+                    MapView()
+                }
+                .tabItem {
+                    Image(systemName: "location.magnifyingglass")
+                    Text("Locations")
+                }
             }
         }
     }

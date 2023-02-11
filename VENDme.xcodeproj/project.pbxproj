@@ -14,6 +14,7 @@
 		19B8CB202997AA6C00BD72C8 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB1F2997AA6C00BD72C8 /* VendingMachine.swift */; };
 		19B8CB222997AB6100BD72C8 /* VendingMachines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB212997AB6100BD72C8 /* VendingMachines.swift */; };
 		19B8CB242997ABB400BD72C8 /* VMInformation.json in Resources */ = {isa = PBXBuildFile; fileRef = 19B8CB232997ABB400BD72C8 /* VMInformation.json */; };
+		19B8CB262997C96500BD72C8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB252997C96500BD72C8 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		19B8CB1F2997AA6C00BD72C8 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 		19B8CB212997AB6100BD72C8 /* VendingMachines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachines.swift; sourceTree = "<group>"; };
 		19B8CB232997ABB400BD72C8 /* VMInformation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VMInformation.json; sourceTree = "<group>"; };
+		19B8CB252997C96500BD72C8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				19B8CB112997A9C100BD72C8 /* VENDmeApp.swift */,
 				19B8CB132997A9C100BD72C8 /* ContentView.swift */,
+				19B8CB252997C96500BD72C8 /* MapView.swift */,
 				19B8CB1F2997AA6C00BD72C8 /* VendingMachine.swift */,
 				19B8CB212997AB6100BD72C8 /* VendingMachines.swift */,
 				19B8CB232997ABB400BD72C8 /* VMInformation.json */,
@@ -149,6 +152,7 @@
 			files = (
 				19B8CB142997A9C100BD72C8 /* ContentView.swift in Sources */,
 				19B8CB122997A9C100BD72C8 /* VENDmeApp.swift in Sources */,
+				19B8CB262997C96500BD72C8 /* MapView.swift in Sources */,
 				19B8CB202997AA6C00BD72C8 /* VendingMachine.swift in Sources */,
 				19B8CB222997AB6100BD72C8 /* VendingMachines.swift in Sources */,
 			);
