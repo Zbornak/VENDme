@@ -98,7 +98,6 @@ struct ContentView: View {
                     Text("\(vendingMachine.city), \(vendingMachine.country)")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
-                        .padding(.bottom)
                         
                     Spacer()
                         
