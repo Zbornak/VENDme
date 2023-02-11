@@ -22,8 +22,10 @@ struct MapView: View {
     var body: some View {
         Map(coordinateRegion: $region, annotationItems: vendingMachines.machines) { vendingMachine in
             MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
-                Image(systemName: "lightswitch.off")
-                    .frame(width: 20, height: 20)
+                NavigationLink(destination: ContentView(vendingMachine: vendingMachine)) {
+                    Image(systemName: "lightswitch.off")
+                        .frame(width: 20, height: 20)
+                }
             }
         }
     }
