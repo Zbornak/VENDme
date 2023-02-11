@@ -12,7 +12,7 @@ struct MapView: View {
     //@EnvironmentObject var vendingMachines: VendingMachines
     var vendingMachines: VendingMachines
     
-    //@State var searchText = ""
+    @State var searchText = ""
     
     @State var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
@@ -20,13 +20,16 @@ struct MapView: View {
     )
     
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: vendingMachines.machines) { vendingMachine in
-            MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
-                Image(systemName: "lightswitch.off")
-                    .frame(width: 20, height: 20)
+        NavigationView {
+            Map(coordinateRegion: $region, annotationItems: vendingMachines.machines) { vendingMachine in
+                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
+                    Image(systemName: "lightswitch.off")
+                        .frame(width: 20, height: 20)
+                }
             }
+            .navigationTitle("Locations")
+            .searchable(text: $searchText)
         }
-        .navigationTitle("Locations")
     }
 }
 
