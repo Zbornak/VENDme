@@ -30,7 +30,6 @@ struct ContentView: View {
 //    }
     
     var body: some View {
-        NavigationView {
             VStack {
                 GeometryReader { geo in
                     Image("example_vm_1")
@@ -73,64 +72,63 @@ struct ContentView: View {
                             .font(.largeTitle)
                         
                         
-                        Spacer()
+                    Spacer()
                         
-                        HStack {
-                            //if vendingMachine.inUse == true {
-                                Image(systemName: "checkmark")
-                                Text("In use")
-                                    .fontWeight(.bold)
+                    HStack {
+                        //if vendingMachine.inUse == true {
+                        Image(systemName: "checkmark")
+                        Text("In use")
+                            .fontWeight(.bold)
                             //} else {
                                 //Image(systemName: "wrench.and.screwdriver.fill")
                                 //Text("Not in use")
                                     //.fontWeight(.bold)
                             //}
-                        }
-                        .padding(5)
-                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(.black, lineWidth: 1))
-                        
                     }
-                    
-                    HStack {
-                        Text("Sapporo, Japan")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                            .padding(.bottom)
+                    .padding(5)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(.black, lineWidth: 1))
                         
-                        Spacer()
-                        
-                        HStack {
-                            Image(systemName: "popcorn.fill")
-                            Text("Food")
-                                .fontWeight(.bold)
-                        }
-                    }
+                }
                     
+                HStack {
+                    Text("Sapporo, Japan")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .padding(.bottom)
+                        
+                    Spacer()
+                        
                     HStack {
-                        Button("Get directions") {
-                            
-                            }
+                        Image(systemName: "popcorn.fill")
+                        Text("Food")
                             .fontWeight(.bold)
-                            .buttonStyle(.borderedProminent)
-                            .tint(.white)
-                            .foregroundColor(.black)
-                            .overlay(RoundedRectangle(cornerRadius: 25)
-                                .stroke(.black, lineWidth: 1))
-                            
-                        Spacer()
-                            
-                        Image(systemName: "star.fill")
-                        Image(systemName: "star.fill")
-                        Image(systemName: "star.fill")
-                        Image(systemName: "star.leadinghalf.filled")
-                        Image(systemName: "star")
-                        Text("(37)")
-                        }
                     }
-                    .padding()
+                }
+                    
+                HStack {
+                    Button("Get directions") {
+                            //more stuff to put in here
+                        }
+                        .fontWeight(.bold)
+                        .buttonStyle(.borderedProminent)
+                        .tint(.white)
+                        .foregroundColor(.black)
+                        .overlay(RoundedRectangle(cornerRadius: 25)
+                        .stroke(.black, lineWidth: 1))
+                            
+                    Spacer()
+                            
+                    Image(systemName: "star.fill")
+                    Image(systemName: "star.fill")
+                    Image(systemName: "star.fill")
+                    Image(systemName: "star.leadinghalf.filled")
+                    Image(systemName: "star")
+                    Text("(37)")
+                    }
+                }
+                .padding()
                 
                 Form {
-                    
                     Section {
                         Text("Selling various flavours of 'Seventeen Ice' ice-cream, including Crispy Strawberry, Choco Mille-Feuille, Custard Purin and Muscat. The brand has been around for decades and is exclusively sold in vending machines in shopping centres and train/bus stations.")
                     } header: {
@@ -143,17 +141,17 @@ struct ContentView: View {
                             Text("(73 check-ins)")
                             Spacer()
                             Button {
-                                
+                                //stuff to come here
                             } label: {
                                 Image(systemName: "hand.raised.fingers.spread")
                                 Text("Check in")
                             }
-                                .fontWeight(.bold)
-                                .buttonStyle(.borderedProminent)
-                                .tint(.white)
-                                .foregroundColor(.black)
-                                .overlay(RoundedRectangle(cornerRadius: 25)
-                                    .stroke(.black, lineWidth: 1))
+                            .fontWeight(.bold)
+                            .buttonStyle(.borderedProminent)
+                            .tint(.white)
+                            .foregroundColor(.black)
+                            .overlay(RoundedRectangle(cornerRadius: 25)
+                            .stroke(.black, lineWidth: 1))
                         }
                         
                         HStack {
@@ -188,7 +186,6 @@ struct ContentView: View {
                         Spacer()
                         Text("Report")
                         Image(systemName: "exclamationmark.bubble")
-                    }
                 }
             }
         }
