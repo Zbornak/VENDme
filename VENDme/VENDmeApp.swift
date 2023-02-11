@@ -24,13 +24,20 @@ struct VENDmeApp: App {
                 }
                 
                 NavigationView {
-                    //MapView()
                     MapView(vendingMachines: vendingMachines)
                 }
                 .searchable(text: $searchText)
                 .tabItem {
                     Image(systemName: "location.magnifyingglass")
                     Text("Locations")
+                }
+                
+                NavigationView {
+                    FavouritesView()
+                }
+                .tabItem {
+                    Image(systemName: "star")
+                    Text("Favourites")
                 }
             }
             .environmentObject(vendingMachines)

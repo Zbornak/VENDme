@@ -9,10 +9,7 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
-    //@EnvironmentObject var vendingMachines: VendingMachines
     var vendingMachines: VendingMachines
-    
-    
     
     @State var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
@@ -33,7 +30,6 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        //MapView()
         MapView(vendingMachines: VendingMachines())
     }
 }
