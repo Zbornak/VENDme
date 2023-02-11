@@ -11,6 +11,9 @@
 		19B8CB142997A9C100BD72C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB132997A9C100BD72C8 /* ContentView.swift */; };
 		19B8CB162997A9C300BD72C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B8CB152997A9C300BD72C8 /* Assets.xcassets */; };
 		19B8CB192997A9C300BD72C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B8CB182997A9C300BD72C8 /* Preview Assets.xcassets */; };
+		19B8CB202997AA6C00BD72C8 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB1F2997AA6C00BD72C8 /* VendingMachine.swift */; };
+		19B8CB222997AB6100BD72C8 /* VendingMachines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB212997AB6100BD72C8 /* VendingMachines.swift */; };
+		19B8CB242997ABB400BD72C8 /* VMInformation.json in Resources */ = {isa = PBXBuildFile; fileRef = 19B8CB232997ABB400BD72C8 /* VMInformation.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		19B8CB132997A9C100BD72C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		19B8CB152997A9C300BD72C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19B8CB182997A9C300BD72C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		19B8CB1F2997AA6C00BD72C8 /* VendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		19B8CB212997AB6100BD72C8 /* VendingMachines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachines.swift; sourceTree = "<group>"; };
+		19B8CB232997ABB400BD72C8 /* VMInformation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VMInformation.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 			children = (
 				19B8CB112997A9C100BD72C8 /* VENDmeApp.swift */,
 				19B8CB132997A9C100BD72C8 /* ContentView.swift */,
+				19B8CB1F2997AA6C00BD72C8 /* VendingMachine.swift */,
+				19B8CB212997AB6100BD72C8 /* VendingMachines.swift */,
+				19B8CB232997ABB400BD72C8 /* VMInformation.json */,
 				19B8CB152997A9C300BD72C8 /* Assets.xcassets */,
 				19B8CB172997A9C300BD72C8 /* Preview Content */,
 			);
@@ -125,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B8CB242997ABB400BD72C8 /* VMInformation.json in Resources */,
 				19B8CB192997A9C300BD72C8 /* Preview Assets.xcassets in Resources */,
 				19B8CB162997A9C300BD72C8 /* Assets.xcassets in Resources */,
 			);
@@ -139,6 +149,8 @@
 			files = (
 				19B8CB142997A9C100BD72C8 /* ContentView.swift in Sources */,
 				19B8CB122997A9C100BD72C8 /* VENDmeApp.swift in Sources */,
+				19B8CB202997AA6C00BD72C8 /* VendingMachine.swift in Sources */,
+				19B8CB222997AB6100BD72C8 /* VendingMachines.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
