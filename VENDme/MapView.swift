@@ -19,11 +19,14 @@ struct MapView: View {
     
     @StateObject var locationManager = LocationManager()
     
+    @State var useUserLocation = false
+    
     var body: some View {
         VStack {
             HStack {
                 LocationButton(.shareCurrentLocation) {
                     locationManager.requestLocation()
+                    useUserLocation.toggle()
                 }
                 .cornerRadius(30)
                 .labelStyle(.iconOnly)
@@ -42,7 +45,7 @@ struct MapView: View {
                 }
             }
             
-            Map(coordinateRegion: $region, annotationItems: vendingMachines.machines) { vendingMachine in
+            Map(coordinateRegion: useUserLocation ? $locationManager.region : $region, showsUserLocation: true, annotationItems: vendingMachines.machines) { vendingMachine in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
                     NavigationLink(destination: ContentView(vendingMachine: vendingMachine)) {
                         Image(systemName: "lightswitch.off")
