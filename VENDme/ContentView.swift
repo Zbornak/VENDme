@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     let vendingMachine: VendingMachine
+    @State var isFavourited = false
     
     func typeImageChoice() -> String {
         if vendingMachine.type == "Food" {
@@ -74,7 +75,6 @@ struct ContentView: View {
                         Text(vendingMachine.name)
                             .fontWeight(.bold)
                             .font(.largeTitle)
-                        
                         
                     Spacer()
                         
@@ -185,9 +185,9 @@ struct ContentView: View {
                     
                 HStack {
                     Button("Add to favourites") {
-                        //add VM to favourites list
+                        isFavourited.toggle()
                     }
-                    Image(systemName: "star")
+                    Image(systemName: isFavourited ? "checkmark" : "star")
                     Spacer()
                     Text("Report")
                     Image(systemName: "exclamationmark.bubble")
