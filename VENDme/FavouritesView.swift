@@ -8,10 +8,27 @@
 import SwiftUI
 
 struct FavouritesView: View {
+    @State var numbers = [Int]()
+    @State var currentNumber = 1
+    
     var body: some View {
         VStack {
-            Text("Favourites")
+            List {
+                ForEach(numbers, id: \.self) {
+                    Text("Row \($0)")
+                }
+                .onDelete(perform: removeRows)
+            }
+            
+            Button("Add number") {
+                numbers.append(currentNumber)
+                currentNumber += 1
+            }
         }
+    }
+    
+    func removeRows(at offsets: IndexSet) {
+        numbers.remove(atOffsets: offsets)
     }
 }
 

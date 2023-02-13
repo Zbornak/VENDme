@@ -39,6 +39,9 @@ struct VENDmeApp: App {
                     Image(systemName: "star")
                     Text("Favourites")
                 }
+                .toolbar {
+                    EditButton()
+                }
             }
             .environmentObject(vendingMachines)
         }

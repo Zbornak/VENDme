@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1937FE01299A48BD001426F8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937FE00299A48BD001426F8 /* LocationManager.swift */; };
+		1937FE03299A7D83001426F8 /* UserFavourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937FE02299A7D83001426F8 /* UserFavourite.swift */; };
+		1937FE05299A8223001426F8 /* UserFavourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937FE04299A8223001426F8 /* UserFavourites.swift */; };
 		1943FB742997F4F700E1A6D8 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1943FB732997F4F700E1A6D8 /* FavouritesView.swift */; };
 		19B8CB122997A9C100BD72C8 /* VENDmeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB112997A9C100BD72C8 /* VENDmeApp.swift */; };
 		19B8CB142997A9C100BD72C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB132997A9C100BD72C8 /* ContentView.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		1937FE00299A48BD001426F8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		1937FE02299A7D83001426F8 /* UserFavourite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavourite.swift; sourceTree = "<group>"; };
+		1937FE04299A8223001426F8 /* UserFavourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavourites.swift; sourceTree = "<group>"; };
 		1943FB732997F4F700E1A6D8 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		19B8CB0E2997A9C100BD72C8 /* VENDme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VENDme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B8CB112997A9C100BD72C8 /* VENDmeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VENDmeApp.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				19B8CB252997C96500BD72C8 /* MapView.swift */,
 				19B8CB1F2997AA6C00BD72C8 /* VendingMachine.swift */,
 				19B8CB212997AB6100BD72C8 /* VendingMachines.swift */,
+				1937FE02299A7D83001426F8 /* UserFavourite.swift */,
+				1937FE04299A8223001426F8 /* UserFavourites.swift */,
 				1937FE00299A48BD001426F8 /* LocationManager.swift */,
 				19B8CB232997ABB400BD72C8 /* VMInformation.json */,
 				19B8CB152997A9C300BD72C8 /* Assets.xcassets */,
@@ -158,6 +164,8 @@
 			files = (
 				19B8CB142997A9C100BD72C8 /* ContentView.swift in Sources */,
 				19B8CB122997A9C100BD72C8 /* VENDmeApp.swift in Sources */,
+				1937FE03299A7D83001426F8 /* UserFavourite.swift in Sources */,
+				1937FE05299A8223001426F8 /* UserFavourites.swift in Sources */,
 				19B8CB262997C96500BD72C8 /* MapView.swift in Sources */,
 				1937FE01299A48BD001426F8 /* LocationManager.swift in Sources */,
 				19B8CB202997AA6C00BD72C8 /* VendingMachine.swift in Sources */,
