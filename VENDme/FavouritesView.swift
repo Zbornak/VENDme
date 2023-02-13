@@ -15,8 +15,23 @@ struct FavouritesView: View {
             VStack {
                 List {
                     ForEach(vendingMachines.machines) { vendingMachine in
-                        Text("\(vendingMachine.name), \(vendingMachine.street), \(vendingMachine.country)")
-                            .fontWeight(.bold)
+                        VStack {
+                            HStack {
+                                Text(vendingMachine.name)
+                                    .fontWeight(.bold)
+                                Spacer()
+                            }
+                            HStack {
+                                Text(vendingMachine.street)
+                                    .foregroundColor(.secondary)
+                                Spacer()
+                            }
+                            HStack {
+                                Text(vendingMachine.country)
+                                    .foregroundColor(.secondary)
+                                Spacer()
+                            }
+                        }
                     }
                     .onDelete(perform: removeItems)
                 }
