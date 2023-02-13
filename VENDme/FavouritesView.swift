@@ -15,10 +15,11 @@ struct FavouritesView: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(favourites.items, id: \.name) { item in
-                        Text(item.name)
+                    ForEach(favourites.items, id: \.id) { item in
+                        Text("\(item.name), \(item.streetName), \(item.countryName)")
+                            .fontWeight(.bold)
                     }
-                    //.onDelete(perform: removeRows)
+                    .onDelete(perform: removeItems)
                 }
             }
         }
@@ -32,9 +33,9 @@ struct FavouritesView: View {
         }
     }
     
-//    func removeRows(at offsets: IndexSet) {
-//        favourites.remove(atOffsets: offsets)
-//    }
+    func removeItems(at offsets: IndexSet) {
+        favourites.items.remove(atOffsets: offsets)
+    }
 }
 
 struct FavouritesView_Previews: PreviewProvider {

@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct UserFavourite: Codable {
+struct UserFavourite: Codable, Identifiable {
+    var id = UUID()
     let name: String
     let streetName: String
     let countryName: String
