@@ -5,6 +5,8 @@
 //  Created by Mark Strijdom on 11/02/2023.
 //
 
+import CoreLocation
+import CoreLocationUI
 import MapKit
 import SwiftUI
 
@@ -18,15 +20,26 @@ struct MapView: View {
     
     @State var useUserLocation = false
     
+    @StateObject var locationManager = LocationManager()
+    
     var body: some View {
         VStack {
             HStack {
-                Button {
-                    useUserLocation.toggle()
-                } label: {
-                    Label("Use my location", systemImage: useUserLocation ? "location.circle.fill" : "location.circle")
+                if let location = locationManager.location {
+                    Text("Your location: \(location.latitude), \(location.longitude)")
                 }
+                
+                LocationButton(.shareCurrentLocation) {
+                    locationManager.requestLocation()
+                }
+                .cornerRadius(30)
+                .labelStyle(.iconOnly)
+                .foregroundColor(.white)
                 .padding(.leading)
+                
+                Text("Use my location")
+                    .fontWeight(.bold)
+                
                 Spacer()
             }
             
