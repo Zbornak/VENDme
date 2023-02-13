@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     let vendingMachine: VendingMachine
     
     func typeImageChoice() -> String {
