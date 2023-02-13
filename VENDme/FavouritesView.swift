@@ -8,28 +8,33 @@
 import SwiftUI
 
 struct FavouritesView: View {
-    @State var numbers = [Int]()
+    @StateObject var favourites = UserFavourites()
     @State var currentNumber = 1
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(numbers, id: \.self) {
-                    Text("Row \($0)")
+        NavigationView {
+            VStack {
+                List {
+                    ForEach(favourites.items, id: \.name) { item in
+                        Text(item.name)
+                    }
+                    //.onDelete(perform: removeRows)
                 }
-                .onDelete(perform: removeRows)
             }
-            
-            Button("Add number") {
-                numbers.append(currentNumber)
-                currentNumber += 1
+        }
+        .toolbar {
+            Button {
+                let favourite = UserFavourite(name: "Test", streetName: "Test Street", countryName: "South Africa", rating: 4.5)
+                favourites.items.append(favourite)
+            } label: {
+                Image(systemName: "plus")
             }
         }
     }
     
-    func removeRows(at offsets: IndexSet) {
-        numbers.remove(atOffsets: offsets)
-    }
+//    func removeRows(at offsets: IndexSet) {
+//        favourites.remove(atOffsets: offsets)
+//    }
 }
 
 struct FavouritesView_Previews: PreviewProvider {
