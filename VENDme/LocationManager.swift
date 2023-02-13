@@ -31,5 +31,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         guard let location = locations.first else { return }
         region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
     }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+            print (error)
+        }
 }
 
