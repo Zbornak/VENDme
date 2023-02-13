@@ -25,10 +25,6 @@ struct MapView: View {
     var body: some View {
         VStack {
             HStack {
-                if let location = locationManager.location {
-                    Text("Your location: \(location.latitude), \(location.longitude)")
-                }
-                
                 LocationButton(.shareCurrentLocation) {
                     locationManager.requestLocation()
                 }
@@ -41,6 +37,10 @@ struct MapView: View {
                     .fontWeight(.bold)
                 
                 Spacer()
+                
+                if let location = locationManager.location {
+                    Text("\(location.latitude), \(location.longitude)")
+                }
             }
             
             Map(coordinateRegion: $region, annotationItems: vendingMachines.machines) { vendingMachine in
