@@ -17,6 +17,7 @@ struct FavouritesView: View {
                     ForEach(vendingMachines.machines) { vendingMachine in
                         VStack {
                             HStack {
+                                Image(systemName: "lightswitch.off")
                                 Text(vendingMachine.name)
                                     .fontWeight(.bold)
                                 Spacer()
@@ -35,6 +36,9 @@ struct FavouritesView: View {
                     }
                     .onDelete(perform: removeItems)
                 }
+            }
+            .toolbar {
+                EditButton()
             }
         }
     }
