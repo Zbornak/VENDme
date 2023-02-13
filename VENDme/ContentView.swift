@@ -38,35 +38,36 @@ struct ContentView: View {
                         .resizable()
                         .scaledToFill()
                     
-                    HStack {
-                        Image(vendingMachine.mainPicture)
-                            .resizable()
-                            .border(.black, width: 3)
-                            .cornerRadius(10)
-                            .frame(width: 70, height: 50)
-                            .shadow(radius: 5)
-                        
-                        Image(vendingMachine.picture2)
-                            .resizable()
-                            .border(.black, width: 1)
-                            .cornerRadius(10)
-                            .frame(width: 70, height: 50)
-                            .shadow(radius: 5)
-                        
-                        Image(vendingMachine.picture3)
-                            .resizable()
-                            .border(.black, width: 1)
-                            .cornerRadius(10)
-                            .frame(width: 70, height: 50)
-                            .shadow(radius: 5)
-                        
-                        Image(vendingMachine.picture4)
-                            .resizable()
-                            .border(.black, width: 1)
-                            .cornerRadius(10)
-                            .frame(width: 70, height: 50)
-                            .shadow(radius: 5)
-                    }
+//                    Trying to align these preview images with bottom of main image
+//                    HStack {
+//                        Image(vendingMachine.mainPicture)
+//                            .resizable()
+//                            .border(.black, width: 3)
+//                            .cornerRadius(10)
+//                            .frame(width: 70, height: 50)
+//                            .shadow(radius: 5)
+//
+//                        Image(vendingMachine.picture2)
+//                            .resizable()
+//                            .border(.black, width: 1)
+//                            .cornerRadius(10)
+//                            .frame(width: 70, height: 50)
+//                            .shadow(radius: 5)
+//
+//                        Image(vendingMachine.picture3)
+//                            .resizable()
+//                            .border(.black, width: 1)
+//                            .cornerRadius(10)
+//                            .frame(width: 70, height: 50)
+//                            .shadow(radius: 5)
+//
+//                        Image(vendingMachine.picture4)
+//                            .resizable()
+//                            .border(.black, width: 1)
+//                            .cornerRadius(10)
+//                            .frame(width: 70, height: 50)
+//                            .shadow(radius: 5)
+//                    }
                 }
                 
                 VStack {
@@ -184,7 +185,9 @@ struct ContentView: View {
                     }
                     
                 HStack {
-                    Text("Add to favourites")
+                    Button("Add to favourites") {
+                        //add VM to favourites list
+                    }
                     Image(systemName: "star")
                     Spacer()
                     Text("Report")
