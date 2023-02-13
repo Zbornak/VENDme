@@ -5,7 +5,6 @@
 //  Created by Mark Strijdom on 11/02/2023.
 //
 
-import CoreLocation
 import CoreLocationUI
 import MapKit
 import SwiftUI
@@ -17,8 +16,6 @@ struct MapView: View {
         center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
         span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
     )
-    
-    @State var useUserLocation = false
     
     @StateObject var locationManager = LocationManager()
     
@@ -40,6 +37,8 @@ struct MapView: View {
                 
                 if let location = locationManager.location {
                     Text("\(location.latitude), \(location.longitude)")
+                        .fontWeight(.bold)
+                        .padding(.trailing)
                 }
             }
             
