@@ -9,7 +9,6 @@ import SwiftUI
 
 struct FavouritesView: View {
     @StateObject var favourites = UserFavourites()
-    @State var currentNumber = 1
     
     var body: some View {
         NavigationView {
