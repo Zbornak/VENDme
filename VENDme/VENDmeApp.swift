@@ -33,7 +33,7 @@ struct VENDmeApp: App {
                 }
                 
                 NavigationView {
-                    FavouritesView()
+                    FavouritesView(vendingMachines: VendingMachines())
                 }
                 .tabItem {
                     Image(systemName: "star")
