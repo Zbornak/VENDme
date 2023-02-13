@@ -15,7 +15,7 @@ struct FavouritesView: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(favourites.items, id: \.id) { item in
+                    ForEach(favourites.items) { item in
                         Text("\(item.name), \(item.streetName), \(item.countryName)")
                             .fontWeight(.bold)
                     }
