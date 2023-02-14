@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-class UserFavourites: ObservableObject {
-    var favourites = Set<Int>()
-}
-
 struct ContentView: View {
     let vendingMachine: VendingMachine
     
