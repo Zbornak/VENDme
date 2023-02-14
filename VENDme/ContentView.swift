@@ -194,7 +194,7 @@ struct ContentView: View {
                     
                 HStack {
                     Button {
-                        isFavourited.toggle()
+                        isFavourited = true
                         //insert id of favourited VM into favourites set
                         userFavourites.favourites.insert(vendingMachine.id)
                     } label: {
