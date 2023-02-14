@@ -9,7 +9,8 @@ import SwiftUI
 
 struct FavouritesView: View {
     @StateObject var vendingMachines: VendingMachines
-
+    
+    //Subsequent time class is called, so ObservedObject is used instead of StateObject
     @ObservedObject var userFavourites = UserFavourites()
     
     var body: some View {

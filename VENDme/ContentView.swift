@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//class containing favourites set
 class UserFavourites: ObservableObject {
     @Published var favourites = Set<Int>()
 }
@@ -17,6 +18,7 @@ struct ContentView: View {
     //bool to toggle add to favourites button image (from star to tick)
     @State private var isFavourited = false
     
+    //First time this class is used (so StateObject)
     @StateObject var userFavourites = UserFavourites()
     
     func typeImageChoice() -> String {
@@ -193,6 +195,7 @@ struct ContentView: View {
                 HStack {
                     Button {
                         isFavourited.toggle()
+                        //insert id of favourited VM into favourites set
                         userFavourites.favourites.insert(vendingMachine.id)
                     } label: {
                         HStack {
