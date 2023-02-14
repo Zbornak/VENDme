@@ -14,36 +14,35 @@ struct FavouritesView: View {
     @ObservedObject var userFavourites = UserFavourites()
     
     var body: some View {
-        NavigationView {
-            VStack {
-                List {
-                    ForEach(vendingMachines.machines.filter({ userFavourites.favourites.contains($0.id) })) { vendingMachine in
-                        VStack {
-                            HStack {
-                                Image(systemName: "lightswitch.off")
-                                Text(vendingMachine.name)
-                                    .fontWeight(.bold)
-                                Spacer()
-                            }
-                            HStack {
-                                Text(vendingMachine.street)
-                                    .foregroundColor(.secondary)
-                                Spacer()
-                            }
-                            HStack {
-                                Text(vendingMachine.country)
-                                    .foregroundColor(.secondary)
-                                Spacer()
-                            }
+        VStack {
+            List {
+                ForEach(vendingMachines.machines.filter({ userFavourites.favourites.contains($0.id) })) { vendingMachine in
+                    VStack {
+                        HStack {
+                            Image(systemName: "lightswitch.off")
+                            Text(vendingMachine.name)
+                                .fontWeight(.bold)
+                            Spacer()
+                        }
+                        HStack {
+                            Text(vendingMachine.street)
+                                .foregroundColor(.secondary)
+                            Spacer()
+                        }
+                        HStack {
+                            Text(vendingMachine.country)
+                                .foregroundColor(.secondary)
+                            Spacer()
                         }
                     }
-                    .onDelete(perform: removeItems)
                 }
-            }
-            .toolbar {
-                EditButton()
+                .onDelete(perform: removeItems)
             }
         }
+        .toolbar {
+            EditButton()
+        }
+        .navigationTitle("Favourites")
     }
     
     func removeItems(at offsets: IndexSet) {
