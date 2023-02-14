@@ -18,8 +18,7 @@ struct ContentView: View {
     //bool to toggle add to favourites button image (from star to tick)
     @State private var isFavourited = false
     
-    //First time this class is used (so StateObject)
-    @StateObject var userFavourites = UserFavourites()
+    @ObservedObject var userFavourites: UserFavourites
     
     func typeImageChoice() -> String {
         if vendingMachine.type == "Food" {

@@ -21,6 +21,8 @@ struct MapView: View {
     
     @State private var useUserLocation = false
     
+    @ObservedObject var userFavourites: UserFavourites
+    
     var body: some View {
         VStack {
             HStack {
@@ -47,7 +49,7 @@ struct MapView: View {
             
             Map(coordinateRegion: useUserLocation ? $locationManager.region : $region, showsUserLocation: true, annotationItems: vendingMachines.machines) { vendingMachine in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
-                    NavigationLink(destination: ContentView(vendingMachine: vendingMachine, userFavourites: UserFavourites())) {
+                    NavigationLink(destination: ContentView(vendingMachine: vendingMachine, userFavourites: userFavourites)) {
                         Image(systemName: "lightswitch.off")
                             .frame(width: 20, height: 20)
                             .foregroundColor(.black)
@@ -61,6 +63,6 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(vendingMachines: VendingMachines())
+        MapView(vendingMachines: VendingMachines(), userFavourites: UserFavourites())
     }
 }
