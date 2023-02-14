@@ -50,6 +50,7 @@ struct MapView: View {
                     NavigationLink(destination: ContentView(vendingMachine: vendingMachine, userFavourites: UserFavourites())) {
                         Image(systemName: "lightswitch.off")
                             .frame(width: 20, height: 20)
+                            .foregroundColor(.black)
                     }
                 }
             }
