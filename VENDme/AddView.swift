@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct AddView: View {
+    let vendingMachineTypes = ["drinks", "clothing", "food", "household", "toys", "gadgets", "memorabilia", "other"]
+    
+    @State private var vendingMachineTypeChoice = "drinks"
+    
+    @State private var isInUse = true
+    
     var body: some View {
         Form {
             Section {
@@ -27,14 +33,46 @@ struct AddView: View {
             }
             
             Section {
-                Text("Name:")
+                Button {
+                    //stuff to come here
+                } label: {
+                    HStack {
+                        Image(systemName: "figure.wave")
+                        Text("I'm there now")
+                    }
+                }
             } header: {
-                Text("what does it sell?")
+                Text("or use your location")
             }
             
-            Text("Name:")
-            Text("Name:")
+            Section {
+                Picker("What does it sell?", selection: $vendingMachineTypeChoice) {
+                    ForEach(vendingMachineTypes, id: \.self) {
+                        Text($0)
+                    }
+                }
+                
+                Toggle("In use?", isOn: $isInUse)
+            }
             
+            Section {
+                Text("Enter description here...")
+                    .foregroundColor(.secondary)
+            } header: {
+                Text("brief description (180 words or less)")
+            }
+            
+            Section {
+                HStack {
+                    Image(systemName: "star")
+                    Image(systemName: "star")
+                    Image(systemName: "star")
+                    Image(systemName: "star")
+                    Image(systemName: "star")
+                }
+            } header: {
+                Text("rate this vending machine")
+            }
         }
         .navigationTitle("Add a Vending Machine")
     }
