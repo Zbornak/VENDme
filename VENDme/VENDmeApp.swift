@@ -39,6 +39,14 @@ struct VENDmeApp: App {
                     Image(systemName: "star")
                     Text("Favourites")
                 }
+                
+                NavigationView {
+                    AddView()
+                }
+                .tabItem {
+                    Image(systemName: "plus")
+                    Text("Add Machine")
+                }
             }
             .environmentObject(vendingMachines)
         }
