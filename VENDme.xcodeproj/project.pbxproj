@@ -67,9 +67,9 @@
 			children = (
 				19B8CB112997A9C100BD72C8 /* VENDmeApp.swift */,
 				19B8CB132997A9C100BD72C8 /* ContentView.swift */,
-				198AE9A7299BE63D00CA8DCD /* AddView.swift */,
-				1943FB732997F4F700E1A6D8 /* FavouritesView.swift */,
 				19B8CB252997C96500BD72C8 /* MapView.swift */,
+				1943FB732997F4F700E1A6D8 /* FavouritesView.swift */,
+				198AE9A7299BE63D00CA8DCD /* AddView.swift */,
 				19B8CB1F2997AA6C00BD72C8 /* VendingMachine.swift */,
 				19B8CB212997AB6100BD72C8 /* VendingMachines.swift */,
 				1937FE00299A48BD001426F8 /* LocationManager.swift */,
