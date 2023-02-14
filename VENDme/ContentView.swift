@@ -184,10 +184,14 @@ struct ContentView: View {
                     }
                     
                 HStack {
-                    Button("Add to favourites") {
+                    Button {
                         isFavourited.toggle()
+                    } label: {
+                        HStack {
+                            Text("Add to favourites")
+                            Image(systemName: isFavourited ? "checkmark" : "star")
+                        }
                     }
-                    Image(systemName: isFavourited ? "checkmark" : "star")
                     Spacer()
                     Text("Report")
                     Image(systemName: "exclamationmark.bubble")
