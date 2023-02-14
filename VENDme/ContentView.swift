@@ -7,13 +7,17 @@
 
 import SwiftUI
 
+class UserFavourites: ObservableObject {
+    @Published var favourites = Set<Int>()
+}
+
 struct ContentView: View {
     let vendingMachine: VendingMachine
     
     //bool to toggle add to favourites button image (from star to tick)
     @State private var isFavourited = false
     
-    var userFavourites: UserFavourites
+    @StateObject var userFavourites = UserFavourites()
     
     func typeImageChoice() -> String {
         if vendingMachine.type == "Food" {

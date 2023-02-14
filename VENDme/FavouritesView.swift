@@ -10,7 +10,7 @@ import SwiftUI
 struct FavouritesView: View {
     @StateObject var vendingMachines: VendingMachines
 
-    @StateObject var userFavourites: UserFavourites
+    @ObservedObject var userFavourites = UserFavourites()
     
     var body: some View {
         NavigationView {
