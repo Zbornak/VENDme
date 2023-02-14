@@ -34,7 +34,7 @@ struct AddView: View {
             
             Section {
                 Button {
-                    //stuff to come here
+                    //use user location rather than them filling in
                 } label: {
                     HStack {
                         Image(systemName: "figure.wave")
@@ -42,7 +42,7 @@ struct AddView: View {
                     }
                 }
             } header: {
-                Text("or use your location")
+                Text("use your location")
             }
             
             Section {
@@ -73,6 +73,27 @@ struct AddView: View {
             } header: {
                 Text("rate this vending machine")
             }
+            
+            Button {
+                    //more stuff to put in here
+            } label: {
+                HStack {
+                    Spacer()
+                    HStack {
+                        Image(systemName: "plus")
+                        Text("Add machine for review")
+                    }
+                    
+                    Spacer()
+                }
+            }
+                .fontWeight(.bold)
+                .buttonStyle(.borderedProminent)
+                .tint(.white)
+                .foregroundColor(.black)
+                .overlay(RoundedRectangle(cornerRadius: 25)
+                .stroke(.black, lineWidth: 1))
+                .padding()
         }
         .navigationTitle("Add a Vending Machine")
     }
