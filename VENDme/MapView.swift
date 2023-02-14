@@ -12,14 +12,14 @@ import SwiftUI
 struct MapView: View {
     var vendingMachines: VendingMachines
     
-    @State var region = MKCoordinateRegion(
+    @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
         span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
     )
     
     @StateObject var locationManager = LocationManager()
     
-    @State var useUserLocation = false
+    @State private var useUserLocation = false
     
     var body: some View {
         VStack {
