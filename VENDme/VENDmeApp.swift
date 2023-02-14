@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct VENDmeApp: App {
     @StateObject var vendingMachines = VendingMachines()
-    @State var searchText = ""
+    @State private var searchText = ""
     
     var body: some Scene {
         WindowGroup {
