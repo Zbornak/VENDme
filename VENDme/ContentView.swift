@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     let vendingMachine: VendingMachine
+    
+    //bool to toggle add to favourites button image
     @State var isFavourited = false
+    
+    //array storing id of user favourites
+    @State var userFavourites = [Int]()
     
     func typeImageChoice() -> String {
         if vendingMachine.type == "Food" {
@@ -186,6 +191,7 @@ struct ContentView: View {
                 HStack {
                     Button {
                         isFavourited.toggle()
+                        userFavourites.append(vendingMachine.id)
                     } label: {
                         HStack {
                             Text("Add to favourites")

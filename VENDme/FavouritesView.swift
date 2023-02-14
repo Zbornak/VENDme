@@ -9,7 +9,6 @@ import SwiftUI
 
 struct FavouritesView: View {
     @StateObject var vendingMachines: VendingMachines
-    var userFavourites = [Int]()
     
     var body: some View {
         NavigationView {
