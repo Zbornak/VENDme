@@ -47,7 +47,7 @@ struct MapView: View {
             
             Map(coordinateRegion: useUserLocation ? $locationManager.region : $region, showsUserLocation: true, annotationItems: vendingMachines.machines) { vendingMachine in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
-                    NavigationLink(destination: ContentView(vendingMachine: vendingMachine)) {
+                    NavigationLink(destination: ContentView(vendingMachine: vendingMachine, userFavourites: UserFavourites())) {
                         Image(systemName: "lightswitch.off")
                             .frame(width: 20, height: 20)
                     }

@@ -7,14 +7,17 @@
 
 import SwiftUI
 
+class UserFavourites: ObservableObject {
+    var favourites = Set<Int>()
+}
+
 struct ContentView: View {
     let vendingMachine: VendingMachine
     
-    //bool to toggle add to favourites button image
-    @State var isFavourited = false
+    //bool to toggle add to favourites button image (from star to tick)
+    @State private var isFavourited = false
     
-    //array storing id of user favourites
-    @State var userFavourites = Set<Int>()
+    var userFavourites: UserFavourites
     
     func typeImageChoice() -> String {
         if vendingMachine.type == "Food" {
@@ -43,36 +46,35 @@ struct ContentView: View {
                         .resizable()
                         .scaledToFill()
                     
-//                    Trying to align these preview images with bottom of main image
-//                    HStack {
-//                        Image(vendingMachine.mainPicture)
-//                            .resizable()
-//                            .border(.black, width: 3)
-//                            .cornerRadius(10)
-//                            .frame(width: 70, height: 50)
-//                            .shadow(radius: 5)
-//
-//                        Image(vendingMachine.picture2)
-//                            .resizable()
-//                            .border(.black, width: 1)
-//                            .cornerRadius(10)
-//                            .frame(width: 70, height: 50)
-//                            .shadow(radius: 5)
-//
-//                        Image(vendingMachine.picture3)
-//                            .resizable()
-//                            .border(.black, width: 1)
-//                            .cornerRadius(10)
-//                            .frame(width: 70, height: 50)
-//                            .shadow(radius: 5)
-//
-//                        Image(vendingMachine.picture4)
-//                            .resizable()
-//                            .border(.black, width: 1)
-//                            .cornerRadius(10)
-//                            .frame(width: 70, height: 50)
-//                            .shadow(radius: 5)
-//                    }
+                    HStack {
+                        Image(vendingMachine.mainPicture)
+                            .resizable()
+                            .border(.black, width: 3)
+                            .cornerRadius(10)
+                            .frame(width: 70, height: 50)
+                            .shadow(radius: 5)
+
+                        Image(vendingMachine.picture2)
+                            .resizable()
+                            .border(.black, width: 1)
+                            .cornerRadius(10)
+                            .frame(width: 70, height: 50)
+                            .shadow(radius: 5)
+
+                        Image(vendingMachine.picture3)
+                            .resizable()
+                            .border(.black, width: 1)
+                            .cornerRadius(10)
+                            .frame(width: 70, height: 50)
+                            .shadow(radius: 5)
+
+                        Image(vendingMachine.picture4)
+                            .resizable()
+                            .border(.black, width: 1)
+                            .cornerRadius(10)
+                            .frame(width: 70, height: 50)
+                            .shadow(radius: 5)
+                    }
                 }
                 
                 VStack {
@@ -191,7 +193,7 @@ struct ContentView: View {
                 HStack {
                     Button {
                         isFavourited.toggle()
-                        userFavourites.insert(vendingMachine.id)
+                        userFavourites.favourites.insert(vendingMachine.id)
                     } label: {
                         HStack {
                             Text("Add to favourites")
@@ -209,6 +211,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(vendingMachine: VendingMachine.example)
+        ContentView(vendingMachine: VendingMachine.example, userFavourites: UserFavourites())
     }
 }

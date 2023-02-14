@@ -16,7 +16,7 @@ struct VENDmeApp: App {
         WindowGroup {
             TabView {
                 NavigationView {
-                    ContentView(vendingMachine: vendingMachines.primary)
+                    ContentView(vendingMachine: vendingMachines.primary, userFavourites: UserFavourites())
                 }
                 .tabItem {
                     Image(systemName: "lightswitch.off")
@@ -33,7 +33,7 @@ struct VENDmeApp: App {
                 }
                 
                 NavigationView {
-                    FavouritesView(vendingMachines: VendingMachines())
+                    FavouritesView(vendingMachines: VendingMachines(), userFavourites: UserFavourites())
                 }
                 .tabItem {
                     Image(systemName: "star")

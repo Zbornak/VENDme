@@ -9,12 +9,14 @@ import SwiftUI
 
 struct FavouritesView: View {
     @StateObject var vendingMachines: VendingMachines
+
+    @StateObject var userFavourites: UserFavourites
     
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(vendingMachines.machines) { vendingMachine in
+                    ForEach(vendingMachines.machines.filter({ userFavourites.favourites.contains($0.id) })) { vendingMachine in
                         VStack {
                             HStack {
                                 Image(systemName: "lightswitch.off")
@@ -50,6 +52,6 @@ struct FavouritesView: View {
 
 struct FavouritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavouritesView(vendingMachines: VendingMachines())
+        FavouritesView(vendingMachines: VendingMachines(), userFavourites: UserFavourites())
     }
 }
