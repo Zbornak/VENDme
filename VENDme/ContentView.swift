@@ -14,7 +14,7 @@ struct ContentView: View {
     @State var isFavourited = false
     
     //array storing id of user favourites
-    @State var userFavourites = [Int]()
+    @State var userFavourites = Set<Int>()
     
     func typeImageChoice() -> String {
         if vendingMachine.type == "Food" {
@@ -191,7 +191,7 @@ struct ContentView: View {
                 HStack {
                     Button {
                         isFavourited.toggle()
-                        userFavourites.append(vendingMachine.id)
+                        userFavourites.insert(vendingMachine.id)
                     } label: {
                         HStack {
                             Text("Add to favourites")
