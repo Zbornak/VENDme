@@ -33,11 +33,13 @@ struct ContentView: View {
     }
     
     var body: some View {
+        GeometryReader { geometry in
             VStack {
                 ZStack {
                     Image(vendingMachine.mainPicture)
                         .resizable()
-                        .scaledToFill()
+                        .scaledToFit()
+                        .frame(maxWidth: geometry.size.width * 1.0)
                     
                     HStack {
                         Image(vendingMachine.mainPicture)
@@ -46,21 +48,21 @@ struct ContentView: View {
                             .cornerRadius(10)
                             .frame(width: 70, height: 50)
                             .shadow(radius: 5)
-
+                        
                         Image(vendingMachine.picture2)
                             .resizable()
                             .border(.black, width: 1)
                             .cornerRadius(10)
                             .frame(width: 70, height: 50)
                             .shadow(radius: 5)
-
+                        
                         Image(vendingMachine.picture3)
                             .resizable()
                             .border(.black, width: 1)
                             .cornerRadius(10)
                             .frame(width: 70, height: 50)
                             .shadow(radius: 5)
-
+                        
                         Image(vendingMachine.picture4)
                             .resizable()
                             .border(.black, width: 1)
@@ -76,40 +78,40 @@ struct ContentView: View {
                             .fontWeight(.bold)
                             .font(.largeTitle)
                         
-                    Spacer()
+                        Spacer()
                         
-                    HStack {
-                        if vendingMachine.inUse == true {
-                            Image(systemName: "checkmark")
-                            Text("In use")
-                                .fontWeight(.bold)
+                        HStack {
+                            if vendingMachine.inUse == true {
+                                Image(systemName: "checkmark")
+                                Text("In use")
+                                    .fontWeight(.bold)
                             } else {
                                 Image(systemName: "wrench.and.screwdriver.fill")
                                 Text("Not in use")
                                     .fontWeight(.bold)
+                            }
+                        }
+                        .padding(5)
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(.black, lineWidth: 1))
+                        
+                    }
+                    
+                    HStack {
+                        Text("\(vendingMachine.city), \(vendingMachine.country)")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        
+                        Spacer()
+                        
+                        HStack {
+                            Image(systemName: typeImageChoice())
+                            Text(vendingMachine.type)
+                                .fontWeight(.bold)
                         }
                     }
-                    .padding(5)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(.black, lineWidth: 1))
-                        
-                }
                     
-                HStack {
-                    Text("\(vendingMachine.city), \(vendingMachine.country)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                        
-                    Spacer()
-                        
                     HStack {
-                        Image(systemName: typeImageChoice())
-                        Text(vendingMachine.type)
-                            .fontWeight(.bold)
-                    }
-                }
-                    
-                HStack {
-                    Button("Get directions") {
+                        Button("Get directions") {
                             //stuff to come here
                         }
                         .fontWeight(.bold)
@@ -117,16 +119,16 @@ struct ContentView: View {
                         .tint(.white)
                         .foregroundColor(.black)
                         .overlay(RoundedRectangle(cornerRadius: 25)
-                        .stroke(.black, lineWidth: 1))
-                            
-                    Spacer()
-                            
-                    Image(systemName: "star.fill")
-                    Image(systemName: "star.fill")
-                    Image(systemName: "star.fill")
-                    Image(systemName: "star.leadinghalf.filled")
-                    Image(systemName: "star")
-                    Text("(37)")
+                            .stroke(.black, lineWidth: 1))
+                        
+                        Spacer()
+                        
+                        Image(systemName: "star.fill")
+                        Image(systemName: "star.fill")
+                        Image(systemName: "star.fill")
+                        Image(systemName: "star.leadinghalf.filled")
+                        Image(systemName: "star")
+                        Text("(37)")
                     }
                 }
                 .padding()
@@ -154,7 +156,7 @@ struct ContentView: View {
                             .tint(.white)
                             .foregroundColor(.black)
                             .overlay(RoundedRectangle(cornerRadius: 25)
-                            .stroke(.black, lineWidth: 1))
+                                .stroke(.black, lineWidth: 1))
                         }
                         
                         HStack {
@@ -183,18 +185,19 @@ struct ContentView: View {
                         Text("Address")
                     }
                     
-                HStack {
-                    Button {
-                        userFavourites.favourites.insert(vendingMachine.id)
-                    } label: {
-                        HStack {
-                            Text("Add to favourites")
-                            Image(systemName: "star")
+                    HStack {
+                        Button {
+                            userFavourites.favourites.insert(vendingMachine.id)
+                        } label: {
+                            HStack {
+                                Text("Add to favourites")
+                                Image(systemName: "star")
+                            }
                         }
+                        Spacer()
+                        Text("Report")
+                        Image(systemName: "exclamationmark.bubble")
                     }
-                    Spacer()
-                    Text("Report")
-                    Image(systemName: "exclamationmark.bubble")
                 }
             }
         }
