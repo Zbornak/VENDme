@@ -34,7 +34,7 @@ struct AddView: View {
             
             Section {
                 Button {
-                    //use user location rather than them filling in
+                    //stuff to come here
                 } label: {
                     HStack {
                         Image(systemName: "figure.wave")
@@ -75,7 +75,7 @@ struct AddView: View {
             }
             
             Button {
-                    //more stuff to put in here
+                    //stuff to come here
             } label: {
                 HStack {
                     Spacer()

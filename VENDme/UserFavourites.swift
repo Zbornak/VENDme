@@ -7,7 +7,6 @@
 
 import Foundation
 
-//class containing favourites set
 class UserFavourites: ObservableObject {
     @Published var favourites = Set<Int>()
 }

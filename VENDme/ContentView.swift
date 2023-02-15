@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     let vendingMachine: VendingMachine
     
-    //bool to toggle add to favourites button image (from star to tick)
     @State private var isFavourited = false
     
     @ObservedObject var userFavourites: UserFavourites
@@ -113,7 +112,7 @@ struct ContentView: View {
                     
                 HStack {
                     Button("Get directions") {
-                            //more stuff to put in here
+                            //stuff to come here
                         }
                         .fontWeight(.bold)
                         .buttonStyle(.borderedProminent)
@@ -189,7 +188,6 @@ struct ContentView: View {
                 HStack {
                     Button {
                         isFavourited = true
-                        //insert id of favourited VM into favourites set
                         userFavourites.favourites.insert(vendingMachine.id)
                     } label: {
                         HStack {
