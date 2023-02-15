@@ -86,8 +86,13 @@ struct ContentView: View {
                     }
                     
                     HStack {
-                        Button("Get directions") {
+                        Button {
                             //stuff to come here
+                        } label: {
+                            HStack {
+                                Image(systemName: "figure.walk")
+                                Text("Directions")
+                            }
                         }
                         .fontWeight(.bold)
                         .buttonStyle(.borderedProminent)
@@ -103,7 +108,7 @@ struct ContentView: View {
                         Image(systemName: "star.fill")
                         Image(systemName: "star.leadinghalf.filled")
                         Image(systemName: "star")
-                        Text("(37)")
+                        Text("(\(vendingMachine.numberOfRatings))")
                     }
                 }
                 .padding(.horizontal)
@@ -137,13 +142,13 @@ struct ContentView: View {
                         }
                         
                         HStack {
-                            Image(systemName: "hand.thumbsup.fill")
-                            Text("(73 check-ins)")
+                            Image(systemName: "figure.wave")
+                            Text("(\(vendingMachine.checkIns) check-ins)")
                             Spacer()
                             Button {
                                 //stuff to come here
                             } label: {
-                                Image(systemName: "hand.raised.fingers.spread")
+                                Image(systemName: "hand.raised.fingers.spread.fill")
                                 Text("Check in")
                             }
                             .fontWeight(.bold)
