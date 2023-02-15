@@ -74,29 +74,6 @@ struct ContentView: View {
                 
                 VStack {
                     HStack {
-                        Text(vendingMachine.name)
-                            .fontWeight(.bold)
-                            .font(.largeTitle)
-                        
-                        Spacer()
-                        
-                        HStack {
-                            if vendingMachine.inUse == true {
-                                Image(systemName: "checkmark")
-                                Text("In use")
-                                    .fontWeight(.bold)
-                            } else {
-                                Image(systemName: "wrench.and.screwdriver.fill")
-                                Text("Not in use")
-                                    .fontWeight(.bold)
-                            }
-                        }
-                        .padding(5)
-                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(.black, lineWidth: 1))
-                        
-                    }
-                    
-                    HStack {
                         Text("\(vendingMachine.city), \(vendingMachine.country)")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
@@ -131,16 +108,36 @@ struct ContentView: View {
                         Text("(37)")
                     }
                 }
-                .padding()
+                .padding(.horizontal)
                 
                 Form {
                     Section {
                         Text(vendingMachine.description)
                     } header: {
-                        Text("Description")
+                        Text("description")
                     }
                     
                     Section {
+                        HStack {
+                            Text("status:")
+                            Spacer()
+                            HStack {
+                                if vendingMachine.inUse == true {
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(.green)
+                                    Text("In use")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.green)
+                                } else {
+                                    Image(systemName: "wrench.and.screwdriver.fill")
+                                        .foregroundColor(.red)
+                                    Text("Not in use")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.red)
+                                }
+                            }
+                        }
+                        
                         HStack {
                             Image(systemName: "hand.thumbsup.fill")
                             Text("(73 check-ins)")
@@ -170,7 +167,7 @@ struct ContentView: View {
                         }
                         
                     } header: {
-                        Text("Let others know you've visited")
+                        Text("information")
                     }
                     
                     Section {
@@ -182,7 +179,7 @@ struct ContentView: View {
                         \(vendingMachine.postcode)
                         """)
                     } header: {
-                        Text("Address")
+                        Text("address")
                     }
                     
                     HStack {
@@ -199,6 +196,7 @@ struct ContentView: View {
                         Image(systemName: "exclamationmark.bubble")
                     }
                 }
+                .navigationTitle(vendingMachine.name)
             }
         }
     }
