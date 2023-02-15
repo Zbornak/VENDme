@@ -13,36 +13,38 @@ struct FavouritesView: View {
     @ObservedObject var userFavourites: UserFavourites
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(vendingMachines.machines.filter({ userFavourites.favourites.contains($0.id) })) { vendingMachine in
-                    NavigationLink {
-                        ContentView(vendingMachine: vendingMachine, userFavourites: userFavourites)
-                    } label: {
-                        HStack {
-                            Image(vendingMachine.mainPicture)
-                                .resizable()
-                                .cornerRadius(10)
-                                .frame(width: 70, height: 50)
-                                .shadow(radius: 5)
-                            
-                            VStack {
-                                HStack {
-                                    Text(vendingMachine.name)
-                                        .fontWeight(.bold)
-                                    Spacer()
-                                }
+        GeometryReader { geometry in
+            VStack {
+                List {
+                    ForEach(vendingMachines.machines.filter({ userFavourites.favourites.contains($0.id) })) { vendingMachine in
+                        NavigationLink {
+                            ContentView(vendingMachine: vendingMachine, userFavourites: userFavourites)
+                        } label: {
+                            HStack {
+                                Image(vendingMachine.mainPicture)
+                                    .resizable()
+                                    .cornerRadius(10)
+                                    .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
+                                    .shadow(radius: 5)
                                 
-                                HStack {
-                                    Text("\(vendingMachine.city), \(vendingMachine.country)")
-                                        .foregroundColor(.secondary)
-                                    Spacer()
+                                VStack {
+                                    HStack {
+                                        Text(vendingMachine.name)
+                                            .fontWeight(.bold)
+                                        Spacer()
+                                    }
+                                    
+                                    HStack {
+                                        Text("\(vendingMachine.city), \(vendingMachine.country)")
+                                            .foregroundColor(.secondary)
+                                        Spacer()
+                                    }
                                 }
                             }
                         }
                     }
+                    .onDelete(perform: removeItems)
                 }
-                .onDelete(perform: removeItems)
             }
         }
         .toolbar {

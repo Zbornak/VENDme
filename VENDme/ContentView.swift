@@ -45,28 +45,28 @@ struct ContentView: View {
                     .resizable()
                     .border(.black, width: 3)
                     .cornerRadius(10)
-                    .frame(maxWidth: geometry.size.width * 0.2, maxHeight: geometry.size.height * 0.07)
+                    .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
                     .shadow(radius: 5)
                         
                 Image(vendingMachine.picture2)
                     .resizable()
                     .border(.black, width: 1)
                     .cornerRadius(10)
-                    .frame(maxWidth: geometry.size.width * 0.2, maxHeight: geometry.size.height * 0.07)
+                    .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
                     .shadow(radius: 5)
                         
                 Image(vendingMachine.picture3)
                     .resizable()
                     .border(.black, width: 1)
                     .cornerRadius(10)
-                    .frame(maxWidth: geometry.size.width * 0.2, maxHeight: geometry.size.height * 0.07)
+                    .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
                     .shadow(radius: 5)
                         
                 Image(vendingMachine.picture4)
                     .resizable()
                     .border(.black, width: 1)
                     .cornerRadius(10)
-                    .frame(maxWidth: geometry.size.width * 0.2, maxHeight: geometry.size.height * 0.07)
+                    .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
                     .shadow(radius: 5)
                 }
                 
