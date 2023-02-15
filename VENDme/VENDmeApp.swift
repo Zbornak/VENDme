@@ -10,31 +10,24 @@ import SwiftUI
 @main
 struct VENDmeApp: App {
     @StateObject var vendingMachines = VendingMachines()
+    
+    @StateObject var locationManager = LocationManager()
+    
     @StateObject var userFavourites = UserFavourites()
-    @State private var searchText = ""
     
     var body: some Scene {
         WindowGroup {
             TabView {
-//                NavigationView {
-//                    ContentView(vendingMachine: vendingMachines.primary, userFavourites: userFavourites)
-//                }
-//                .tabItem {
-//                    Image(systemName: "lightswitch.off")
-//                    Text("Discover")
-//                }
-                
                 NavigationView {
-                    MapView(vendingMachines: vendingMachines, userFavourites: userFavourites)
+                    MapView(vendingMachines: vendingMachines, userFavourites: userFavourites, locationManager: locationManager)
                 }
-                .searchable(text: $searchText)
                 .tabItem {
                     Image(systemName: "location.magnifyingglass")
                     Text("Locations")
                 }
                 
                 NavigationView {
-                    FavouritesView(vendingMachines: VendingMachines(), userFavourites: userFavourites)
+                    FavouritesView(vendingMachines: vendingMachines, userFavourites: userFavourites)
                 }
                 .tabItem {
                     Image(systemName: "star")
@@ -49,7 +42,6 @@ struct VENDmeApp: App {
                     Text("Add Machine")
                 }
             }
-            .environmentObject(vendingMachines)
         }
     }
 }

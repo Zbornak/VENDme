@@ -10,25 +10,25 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
-    var vendingMachines: VendingMachines
+    @ObservedObject var vendingMachines: VendingMachines
+    
+    @ObservedObject var userFavourites: UserFavourites
+    
+    @ObservedObject var locationManager: LocationManager
     
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
         span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
     )
     
-    @StateObject var locationManager = LocationManager()
-    
     @State private var useUserLocation = false
-    
-    @ObservedObject var userFavourites: UserFavourites
     
     var body: some View {
         VStack {
             HStack {
                 LocationButton(.shareCurrentLocation) {
                     locationManager.requestLocation()
-                    useUserLocation.toggle()
+                    useUserLocation = true
                 }
                 .cornerRadius(30)
                 .labelStyle(.iconOnly)
@@ -63,6 +63,6 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(vendingMachines: VendingMachines(), userFavourites: UserFavourites())
+        MapView(vendingMachines: VendingMachines(), userFavourites: UserFavourites(), locationManager: LocationManager())
     }
 }
