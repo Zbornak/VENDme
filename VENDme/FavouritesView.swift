@@ -19,22 +19,25 @@ struct FavouritesView: View {
                     NavigationLink {
                         ContentView(vendingMachine: vendingMachine, userFavourites: userFavourites)
                     } label: {
-                        VStack {
-                            HStack {
-                                Image(systemName: "lightswitch.off")
-                                Text(vendingMachine.name)
-                                    .fontWeight(.bold)
-                                Spacer()
-                            }
-                            HStack {
-                                Text(vendingMachine.street)
-                                    .foregroundColor(.secondary)
-                                Spacer()
-                            }
-                            HStack {
-                                Text(vendingMachine.country)
-                                    .foregroundColor(.secondary)
-                                Spacer()
+                        HStack {
+                            Image(vendingMachine.mainPicture)
+                                .resizable()
+                                .cornerRadius(10)
+                                .frame(width: 70, height: 50)
+                                .shadow(radius: 5)
+                            
+                            VStack {
+                                HStack {
+                                    Text(vendingMachine.name)
+                                        .fontWeight(.bold)
+                                    Spacer()
+                                }
+                                
+                                HStack {
+                                    Text("\(vendingMachine.city), \(vendingMachine.country)")
+                                        .foregroundColor(.secondary)
+                                    Spacer()
+                                }
                             }
                         }
                     }
