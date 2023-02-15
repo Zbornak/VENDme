@@ -10,8 +10,6 @@ import SwiftUI
 struct ContentView: View {
     let vendingMachine: VendingMachine
     
-    @State private var isFavourited = false
-    
     @ObservedObject var userFavourites: UserFavourites
     
     func typeImageChoice() -> String {
@@ -187,12 +185,11 @@ struct ContentView: View {
                     
                 HStack {
                     Button {
-                        isFavourited = true
                         userFavourites.favourites.insert(vendingMachine.id)
                     } label: {
                         HStack {
                             Text("Add to favourites")
-                            Image(systemName: isFavourited ? "checkmark" : "star")
+                            Image(systemName: "star")
                         }
                     }
                     Spacer()
