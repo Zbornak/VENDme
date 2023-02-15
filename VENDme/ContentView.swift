@@ -35,47 +35,45 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                ZStack {
-                    Image(vendingMachine.mainPicture)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: geometry.size.width * 1.0)
+                Image(vendingMachine.mainPicture)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: geometry.size.width * 1.0)
                     
-                    HStack {
-                        Image(vendingMachine.mainPicture)
-                            .resizable()
-                            .border(.black, width: 3)
-                            .cornerRadius(10)
-                            .frame(width: 70, height: 50)
-                            .shadow(radius: 5)
+            HStack {
+                Image(vendingMachine.mainPicture)
+                    .resizable()
+                    .border(.black, width: 3)
+                    .cornerRadius(10)
+                    .frame(maxWidth: geometry.size.width * 0.2, maxHeight: geometry.size.height * 0.07)
+                    .shadow(radius: 5)
                         
-                        Image(vendingMachine.picture2)
-                            .resizable()
-                            .border(.black, width: 1)
-                            .cornerRadius(10)
-                            .frame(width: 70, height: 50)
-                            .shadow(radius: 5)
+                Image(vendingMachine.picture2)
+                    .resizable()
+                    .border(.black, width: 1)
+                    .cornerRadius(10)
+                    .frame(maxWidth: geometry.size.width * 0.2, maxHeight: geometry.size.height * 0.07)
+                    .shadow(radius: 5)
                         
-                        Image(vendingMachine.picture3)
-                            .resizable()
-                            .border(.black, width: 1)
-                            .cornerRadius(10)
-                            .frame(width: 70, height: 50)
-                            .shadow(radius: 5)
+                Image(vendingMachine.picture3)
+                    .resizable()
+                    .border(.black, width: 1)
+                    .cornerRadius(10)
+                    .frame(maxWidth: geometry.size.width * 0.2, maxHeight: geometry.size.height * 0.07)
+                    .shadow(radius: 5)
                         
-                        Image(vendingMachine.picture4)
-                            .resizable()
-                            .border(.black, width: 1)
-                            .cornerRadius(10)
-                            .frame(width: 70, height: 50)
-                            .shadow(radius: 5)
-                    }
+                Image(vendingMachine.picture4)
+                    .resizable()
+                    .border(.black, width: 1)
+                    .cornerRadius(10)
+                    .frame(maxWidth: geometry.size.width * 0.2, maxHeight: geometry.size.height * 0.07)
+                    .shadow(radius: 5)
                 }
                 
                 VStack {
                     HStack {
                         Text("\(vendingMachine.city), \(vendingMachine.country)")
-                            .font(.subheadline)
+                            .font(.headline)
                             .foregroundColor(.secondary)
                         
                         Spacer()
@@ -96,7 +94,7 @@ struct ContentView: View {
                         .tint(.white)
                         .foregroundColor(.black)
                         .overlay(RoundedRectangle(cornerRadius: 25)
-                            .stroke(.black, lineWidth: 1))
+                        .stroke(.black, lineWidth: 1))
                         
                         Spacer()
                         
