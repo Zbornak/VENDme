@@ -12,6 +12,11 @@ struct ContentView: View {
     
     @ObservedObject var userFavourites: UserFavourites
     
+    @State private var imageOneShowing = true
+    @State private var imageTwoShowing = false
+    @State private var imageThreeShowing = false
+    @State private var imageFourShowing = false
+    
     func typeImageChoice() -> String {
         if vendingMachine.type == "Food" {
             return "popcorn.fill"
@@ -35,40 +40,85 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Image(vendingMachine.mainPicture)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: geometry.size.width * 1.0)
+                if imageOneShowing {
+                    Image(vendingMachine.mainPicture)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: geometry.size.width * 1.0)
+                } else if imageTwoShowing {
+                    Image(vendingMachine.picture2)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: geometry.size.width * 1.0)
+                } else if imageThreeShowing {
+                    Image(vendingMachine.picture3)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: geometry.size.width * 1.0)
+                } else {
+                    Image(vendingMachine.picture4)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: geometry.size.width * 1.0)
+                }
                     
             HStack {
-                Image(vendingMachine.mainPicture)
-                    .resizable()
-                    .border(.black, width: 3)
-                    .cornerRadius(10)
-                    .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
-                    .shadow(radius: 5)
-                        
-                Image(vendingMachine.picture2)
-                    .resizable()
-                    .border(.black, width: 1)
-                    .cornerRadius(10)
-                    .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
-                    .shadow(radius: 5)
-                        
-                Image(vendingMachine.picture3)
-                    .resizable()
-                    .border(.black, width: 1)
-                    .cornerRadius(10)
-                    .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
-                    .shadow(radius: 5)
-                        
-                Image(vendingMachine.picture4)
-                    .resizable()
-                    .border(.black, width: 1)
-                    .cornerRadius(10)
-                    .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
-                    .shadow(radius: 5)
+                Button {
+                    imageOneShowing = true
+                    imageTwoShowing = false
+                    imageThreeShowing = false
+                    imageFourShowing = false
+                } label: {
+                    Image(vendingMachine.mainPicture)
+                        .resizable()
+                        .border(.black, width: 3)
+                        .cornerRadius(10)
+                        .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
+                        .shadow(radius: 5)
                 }
+                
+                Button {
+                    imageOneShowing = false
+                    imageTwoShowing = true
+                    imageThreeShowing = false
+                    imageFourShowing = false
+                } label: {
+                    Image(vendingMachine.picture2)
+                        .resizable()
+                        .border(.black, width: 1)
+                        .cornerRadius(10)
+                        .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
+                        .shadow(radius: 5)
+                }
+                
+                Button {
+                    imageOneShowing = false
+                    imageTwoShowing = false
+                    imageThreeShowing = true
+                    imageFourShowing = false
+                } label: {
+                    Image(vendingMachine.picture3)
+                        .resizable()
+                        .border(.black, width: 1)
+                        .cornerRadius(10)
+                        .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
+                        .shadow(radius: 5)
+                }
+                
+                Button {
+                    imageOneShowing = false
+                    imageTwoShowing = false
+                    imageThreeShowing = false
+                    imageFourShowing = true
+                } label: {
+                    Image(vendingMachine.picture4)
+                        .resizable()
+                        .border(.black, width: 1)
+                        .cornerRadius(10)
+                        .frame(maxWidth: geometry.size.width * 0.17, maxHeight: geometry.size.height * 0.07)
+                        .shadow(radius: 5)
+                }
+            }
                 
                 VStack {
                     HStack {
