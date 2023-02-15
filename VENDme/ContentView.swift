@@ -17,6 +17,9 @@ struct ContentView: View {
     @State private var imageThreeShowing = false
     @State private var imageFourShowing = false
     
+    @State private var showingDirectionsView = false
+    @State private var showingReportView = false
+    
     func typeImageChoice() -> String {
         if vendingMachine.type == "Food" {
             return "popcorn.fill"
@@ -137,7 +140,7 @@ struct ContentView: View {
                     
                     HStack {
                         Button {
-                            //stuff to come here
+                            showingDirectionsView.toggle()
                         } label: {
                             HStack {
                                 Image(systemName: "figure.walk")
@@ -150,6 +153,11 @@ struct ContentView: View {
                         .foregroundColor(.black)
                         .overlay(RoundedRectangle(cornerRadius: 25)
                         .stroke(.black, lineWidth: 1))
+                        .sheet(isPresented: $showingDirectionsView) {
+                            DirectionsView()
+                                .presentationDetents([.medium, .large])
+                                .presentationDragIndicator(.hidden)
+                        }
                         
                         Spacer()
                         
@@ -245,8 +253,15 @@ struct ContentView: View {
                             }
                         }
                         Spacer()
-                        Text("Report")
-                        Image(systemName: "exclamationmark.bubble")
+                        
+                        Button {
+                            showingReportView.toggle()
+                        } label: {
+                            HStack {
+                                Text("Report")
+                                Image(systemName: "exclamationmark.bubble")
+                            }
+                        }
                     }
                 }
                 .navigationTitle(vendingMachine.name)
