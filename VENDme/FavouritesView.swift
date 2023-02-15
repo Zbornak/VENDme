@@ -16,22 +16,26 @@ struct FavouritesView: View {
         VStack {
             List {
                 ForEach(vendingMachines.machines.filter({ userFavourites.favourites.contains($0.id) })) { vendingMachine in
-                    VStack {
-                        HStack {
-                            Image(systemName: "lightswitch.off")
-                            Text(vendingMachine.name)
-                                .fontWeight(.bold)
-                            Spacer()
-                        }
-                        HStack {
-                            Text(vendingMachine.street)
-                                .foregroundColor(.secondary)
-                            Spacer()
-                        }
-                        HStack {
-                            Text(vendingMachine.country)
-                                .foregroundColor(.secondary)
-                            Spacer()
+                    NavigationLink {
+                        Text("Vending machine here")
+                    } label: {
+                        VStack {
+                            HStack {
+                                Image(systemName: "lightswitch.off")
+                                Text(vendingMachine.name)
+                                    .fontWeight(.bold)
+                                Spacer()
+                            }
+                            HStack {
+                                Text(vendingMachine.street)
+                                    .foregroundColor(.secondary)
+                                Spacer()
+                            }
+                            HStack {
+                                Text(vendingMachine.country)
+                                    .foregroundColor(.secondary)
+                                Spacer()
+                            }
                         }
                     }
                 }
