@@ -17,7 +17,7 @@ struct FavouritesView: View {
             List {
                 ForEach(vendingMachines.machines.filter({ userFavourites.favourites.contains($0.id) })) { vendingMachine in
                     NavigationLink {
-                        Text("Vending machine here")
+                        ContentView(vendingMachine: vendingMachine, userFavourites: userFavourites)
                     } label: {
                         VStack {
                             HStack {
