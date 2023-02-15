@@ -16,13 +16,13 @@ struct VENDmeApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                NavigationView {
-                    ContentView(vendingMachine: vendingMachines.primary, userFavourites: userFavourites)
-                }
-                .tabItem {
-                    Image(systemName: "lightswitch.off")
-                    Text("Discover")
-                }
+//                NavigationView {
+//                    ContentView(vendingMachine: vendingMachines.primary, userFavourites: userFavourites)
+//                }
+//                .tabItem {
+//                    Image(systemName: "lightswitch.off")
+//                    Text("Discover")
+//                }
                 
                 NavigationView {
                     MapView(vendingMachines: vendingMachines, userFavourites: userFavourites)
