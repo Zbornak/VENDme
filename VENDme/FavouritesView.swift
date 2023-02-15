@@ -52,7 +52,11 @@ struct FavouritesView: View {
     }
     
     func removeItems(at offsets: IndexSet) {
-        vendingMachines.machines.remove(atOffsets: offsets)
+        let vendingMachines = vendingMachines.machines.filter({ userFavourites.favourites.contains($0.id) })
+        for index in offsets {
+            let vendingMachine = vendingMachines[index]
+            userFavourites.favourites.remove(vendingMachine.id)
+        }
     }
 }
 
