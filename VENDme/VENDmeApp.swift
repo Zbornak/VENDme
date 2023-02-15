@@ -23,7 +23,7 @@ struct VENDmeApp: App {
                 }
                 .tabItem {
                     Image(systemName: "location.magnifyingglass")
-                    Text("Locations")
+                    Text("Discover")
                 }
                 
                 NavigationView {
@@ -40,6 +40,14 @@ struct VENDmeApp: App {
                 .tabItem {
                     Image(systemName: "plus")
                     Text("Add Machine")
+                }
+                
+                NavigationView {
+                    FeaturedView()
+                }
+                .tabItem {
+                    Image(systemName: "rosette")
+                    Text("Featured")
                 }
             }
         }
