@@ -163,11 +163,38 @@ struct ContentView: View {
                         
                         Spacer()
                         
-                        Image(systemName: "star.fill")
-                        Image(systemName: "star.fill")
-                        Image(systemName: "star.fill")
-                        Image(systemName: "star")
-                        Image(systemName: "star")
+                        if vendingMachine.userRating == 1 {
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star")
+                            Image(systemName: "star")
+                            Image(systemName: "star")
+                            Image(systemName: "star")
+                        } else if vendingMachine.userRating == 2 {
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star")
+                            Image(systemName: "star")
+                            Image(systemName: "star")
+                        } else if vendingMachine.userRating == 3 {
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star")
+                            Image(systemName: "star")
+                        } else if vendingMachine.userRating == 4 {
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star")
+                        } else {
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                        }
+                        
                         Text("(\(vendingMachine.numberOfRatings))")
                     }
                 }
