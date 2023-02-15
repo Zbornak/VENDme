@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct ReportView: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        Text("Report a problem")
+        NavigationView {
+            Text("Report a problem")
+                .toolbar {
+                    Button("Done") {
+                        dismiss()
+                }
+            }
+        }
     }
 }
 

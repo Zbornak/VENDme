@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct DirectionsView: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        Text("Get directions")
+        NavigationView {
+            Text("Get directions")
+                .toolbar {
+                    Button("Done") {
+                        dismiss()
+                }
+            }
+        }
     }
 }
 
