@@ -20,6 +20,8 @@ struct ContentView: View {
     @State private var showingDirectionsView = false
     @State private var showingReportView = false
     
+    @State private var rating = 3
+    
     func typeImageChoice() -> String {
         if vendingMachine.type == "Food" {
             return "popcorn.fill"
@@ -164,7 +166,7 @@ struct ContentView: View {
                         Image(systemName: "star.fill")
                         Image(systemName: "star.fill")
                         Image(systemName: "star.fill")
-                        Image(systemName: "star.leadinghalf.filled")
+                        Image(systemName: "star")
                         Image(systemName: "star")
                         Text("(\(vendingMachine.numberOfRatings))")
                     }
@@ -220,11 +222,7 @@ struct ContentView: View {
                         HStack {
                             Text("Rate this machine:")
                             Spacer()
-                            Image(systemName: "star")
-                            Image(systemName: "star")
-                            Image(systemName: "star")
-                            Image(systemName: "star")
-                            Image(systemName: "star")
+                            RatingView(rating: $rating)
                         }
                         
                     } header: {
