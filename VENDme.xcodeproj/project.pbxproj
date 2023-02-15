@@ -22,6 +22,7 @@
 		19B90385299CFD6300D8A70B /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B90384299CFD6300D8A70B /* FeaturedView.swift */; };
 		19B90387299D211200D8A70B /* DirectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B90386299D211200D8A70B /* DirectionsView.swift */; };
 		19B90389299D218B00D8A70B /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B90388299D218B00D8A70B /* ReportView.swift */; };
+		19C45485299D2AD2001B7B66 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C45484299D2AD2001B7B66 /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		19B90384299CFD6300D8A70B /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
 		19B90386299D211200D8A70B /* DirectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsView.swift; sourceTree = "<group>"; };
 		19B90388299D218B00D8A70B /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		19C45484299D2AD2001B7B66 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				19B90384299CFD6300D8A70B /* FeaturedView.swift */,
 				19B90386299D211200D8A70B /* DirectionsView.swift */,
 				19B90388299D218B00D8A70B /* ReportView.swift */,
+				19C45484299D2AD2001B7B66 /* RatingView.swift */,
 				19B8CB1F2997AA6C00BD72C8 /* VendingMachine.swift */,
 				19B8CB212997AB6100BD72C8 /* VendingMachines.swift */,
 				1937FE00299A48BD001426F8 /* LocationManager.swift */,
@@ -178,6 +181,7 @@
 				19B8CB122997A9C100BD72C8 /* VENDmeApp.swift in Sources */,
 				19B8CB262997C96500BD72C8 /* MapView.swift in Sources */,
 				19B90383299CEDF400D8A70B /* UserFavourites.swift in Sources */,
+				19C45485299D2AD2001B7B66 /* RatingView.swift in Sources */,
 				1937FE01299A48BD001426F8 /* LocationManager.swift in Sources */,
 				198AE9A8299BE63D00CA8DCD /* AddView.swift in Sources */,
 				19B8CB202997AA6C00BD72C8 /* VendingMachine.swift in Sources */,
