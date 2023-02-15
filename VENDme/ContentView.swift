@@ -243,7 +243,7 @@ struct ContentView: View {
                         Text("address")
                     }
                     
-                    HStack {
+                    Section {
                         Button {
                             userFavourites.favourites.insert(vendingMachine.id)
                         } label: {
@@ -252,15 +252,19 @@ struct ContentView: View {
                                 Image(systemName: "star")
                             }
                         }
-                        Spacer()
                         
                         Button {
                             showingReportView.toggle()
                         } label: {
                             HStack {
-                                Text("Report")
+                                Text("Report a problem")
                                 Image(systemName: "exclamationmark.bubble")
                             }
+                        }
+                        .sheet(isPresented: $showingReportView) {
+                            ReportView()
+                                .presentationDetents([.medium, .large])
+                                .presentationDragIndicator(.hidden)
                         }
                     }
                 }
