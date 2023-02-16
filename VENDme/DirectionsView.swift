@@ -20,8 +20,9 @@ struct DirectionsView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
+            ZStack(alignment: .bottom) {
                 DirectionsMapView(vendingMachines: VendingMachines(), userFavourites: UserFavourites(), locationManager: LocationManager())
+                    .ignoresSafeArea()
                 
                 VStack {
                     HStack {
@@ -47,8 +48,12 @@ struct DirectionsView: View {
                         Image(systemName: "arrow.triangle.swap")
                     }
                     .toolbar {
-                        Button("Done") {
+                        Button {
                             dismiss()
+                        } label: {
+                            Image(systemName: "multiply")
+                                .fontWeight(.bold)
+                                .foregroundColor(.black)
                         }
                     }
                 }
