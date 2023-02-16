@@ -43,7 +43,14 @@ struct DirectionsView: View {
                     HStack {
                         Text("\(vendingMachine.region)")
                         Spacer()
-                        Image(systemName: "info.square")
+                        Button {
+                            //stuff here
+                        } label: {
+                            HStack {
+                                Text("Directions")
+                                Image(systemName: "info.square")
+                            }
+                        }
                     }
                     .toolbar {
                         Button {
