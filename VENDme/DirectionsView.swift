@@ -22,12 +22,11 @@ struct DirectionsView: View {
         center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
         span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
     )
-    @State private var useUserLocation = false
     
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                Map(coordinateRegion: useUserLocation ? $locationManager.region : $region, showsUserLocation: true, annotationItems: vendingMachines.machines) { vendingMachine in
+                Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: vendingMachines.machines) { vendingMachine in
                     MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
                         NavigationLink(destination: ContentView(vendingMachine: vendingMachine, userFavourites: userFavourites)) {
                             Image(systemName: "lightswitch.off")
