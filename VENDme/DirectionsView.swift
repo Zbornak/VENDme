@@ -28,14 +28,12 @@ struct DirectionsView: View {
             ZStack(alignment: .bottom) {
                 Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: vendingMachines.machines) { vendingMachine in
                     MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
-                        NavigationLink(destination: ContentView(vendingMachine: vendingMachine, userFavourites: userFavourites)) {
                             Image(systemName: "lightswitch.off")
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.black)
                         }
                     }
-                }
-                .ignoresSafeArea()
+                    .ignoresSafeArea()
                 
                 VStack {
                     HStack {
