@@ -21,13 +21,10 @@ struct MapView: View {
         span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
     )
     
-    //this is doing nothing at the moment
-    @State private var userLocation = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
-        span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
-    )
-    
     var body: some View {
+        let latitude = locationManager.location?.latitude
+        let longitude = locationManager.location?.longitude
+        
         VStack(alignment: .trailing) {
             Button {
                 //stuff here
