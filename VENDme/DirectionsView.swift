@@ -7,21 +7,37 @@
 
 import CoreLocation
 import CoreLocationUI
+import MapKit
 import SwiftUI
 
 struct DirectionsView: View {
     @Environment(\.dismiss) var dismiss
     
+    @ObservedObject var vendingMachines: VendingMachines
+    @ObservedObject var userFavourites: UserFavourites
     @ObservedObject var locationManager: LocationManager
     
     @State private var currentLocation = ""
     @State private var desiredLocation = ""
+    @State private var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
+        span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
+    )
+    @State private var useUserLocation = false
     
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                DirectionsMapView(vendingMachines: VendingMachines(), userFavourites: UserFavourites(), locationManager: LocationManager())
-                    .ignoresSafeArea()
+                Map(coordinateRegion: useUserLocation ? $locationManager.region : $region, showsUserLocation: true, annotationItems: vendingMachines.machines) { vendingMachine in
+                    MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
+                        NavigationLink(destination: ContentView(vendingMachine: vendingMachine, userFavourites: userFavourites)) {
+                            Image(systemName: "lightswitch.off")
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(.black)
+                        }
+                    }
+                }
+                .ignoresSafeArea()
                 
                 VStack {
                     HStack {
@@ -68,6 +84,6 @@ struct DirectionsView: View {
 
 struct DirectionsView_Previews: PreviewProvider {
     static var previews: some View {
-        DirectionsView(locationManager: LocationManager())
+        DirectionsView(vendingMachines: VendingMachines(), userFavourites: UserFavourites(), locationManager: LocationManager())
     }
 }
