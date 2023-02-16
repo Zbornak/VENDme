@@ -21,7 +21,7 @@ struct DirectionsView: View {
     @State private var currentLocation = ""
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
-        span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
+        span: MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
     )
     
     //put user location in "from:" text field
@@ -50,7 +50,7 @@ struct DirectionsView: View {
                 VStack {
                     HStack {
                         Text("From:")
-                        TextField(showUserLocation ? "" : "enter yout current location", text: $currentLocation)
+                        TextField(showUserLocation ? "\(userLatitude), \(userLongitude)" : "enter yout current location", text: $currentLocation)
                     }
                     
                     HStack {
