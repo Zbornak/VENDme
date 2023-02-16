@@ -156,7 +156,7 @@ struct ContentView: View {
                         .overlay(RoundedRectangle(cornerRadius: 25)
                         .stroke(.black, lineWidth: 1))
                         .sheet(isPresented: $showingDirectionsView) {
-                            DirectionsView()
+                            DirectionsView(locationManager: LocationManager())
                                 .presentationDetents([.fraction(0.85)])
                                 .presentationDragIndicator(.hidden)
                         }
