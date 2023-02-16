@@ -18,7 +18,6 @@ struct DirectionsView: View {
     @ObservedObject var locationManager: LocationManager
     
     @State private var currentLocation = ""
-    @State private var desiredLocation = ""
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
         span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
@@ -42,7 +41,7 @@ struct DirectionsView: View {
                 VStack {
                     HStack {
                         Text("From:")
-                        TextField("Current location", text: $currentLocation)
+                        TextField("enter yout current location", text: $currentLocation)
                     }
                     
                     HStack {
@@ -53,13 +52,13 @@ struct DirectionsView: View {
                         .labelStyle(.iconOnly)
                         .foregroundColor(.white)
                         
-                        Text("Use current location")
+                        Text("or use my location")
                         Spacer()
                     }
                     
                     HStack {
-                        Text("To:")
-                        TextField("To", text: $desiredLocation)
+                        Text("To (vending machine name here)")
+                        Spacer()
                     }
                     .toolbar {
                         Button {
