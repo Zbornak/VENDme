@@ -21,6 +21,11 @@ struct MapView: View {
         span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
     )
     
+    @State private var userLocation = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
+        span: MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
+    )
+    
     var body: some View {
         VStack(alignment: .trailing) {
             Button {
