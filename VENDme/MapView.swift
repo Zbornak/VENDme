@@ -25,23 +25,7 @@ struct MapView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                LocationButton(.shareCurrentLocation) {
-                    locationManager.requestLocation()
-                    useUserLocation = true
-                }
-                .cornerRadius(30)
-                .labelStyle(.iconOnly)
-                .foregroundColor(.white)
-                .padding(.leading)
-                
-                Text("Use my location")
-                    .fontWeight(.bold)
-                
-                Spacer()
-            }
-            
-            Map(coordinateRegion: useUserLocation ? $locationManager.region : $region, showsUserLocation: true, annotationItems: vendingMachines.machines) { vendingMachine in
+            Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: vendingMachines.machines) { vendingMachine in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
                     NavigationLink(destination: ContentView(vendingMachine: vendingMachine, userFavourites: userFavourites)) {
                         Image(systemName: "lightswitch.off")
