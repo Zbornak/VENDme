@@ -13,7 +13,8 @@ import SwiftUI
 struct DirectionsView: View {
     @Environment(\.dismiss) var dismiss
     
-    @ObservedObject var vendingMachines: VendingMachines
+    let vendingMachine: VendingMachine
+    
     @ObservedObject var userFavourites: UserFavourites
     @ObservedObject var locationManager: LocationManager
     
@@ -26,7 +27,7 @@ struct DirectionsView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: vendingMachines.machines) { vendingMachine in
+                Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: [vendingMachine]) { vendingMachine in
                     MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
                             Image(systemName: "lightswitch.off")
                                 .frame(width: 20, height: 20)
@@ -54,7 +55,7 @@ struct DirectionsView: View {
                     }
                     
                     HStack {
-                        Text("To (vending machine name here)")
+                        Text("To \(vendingMachine.name), \(vendingMachine.street)")
                         Spacer()
                     }
                     .toolbar {
@@ -80,6 +81,6 @@ struct DirectionsView: View {
 
 struct DirectionsView_Previews: PreviewProvider {
     static var previews: some View {
-        DirectionsView(vendingMachines: VendingMachines(), userFavourites: UserFavourites(), locationManager: LocationManager())
+        DirectionsView(vendingMachine: VendingMachine.example, userFavourites: UserFavourites(), locationManager: LocationManager())
     }
 }
