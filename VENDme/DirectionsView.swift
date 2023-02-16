@@ -16,9 +16,9 @@ struct DirectionsView: View {
     let vendingMachine: VendingMachine
     
     @ObservedObject var userFavourites: UserFavourites
+    
     @ObservedObject var locationManager: LocationManager
     
-    @State private var currentLocation = ""
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
         span: MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
@@ -37,11 +37,6 @@ struct DirectionsView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    HStack {
-                        Text("From:")
-                        TextField("enter your location", text: $currentLocation)
-                    }
-                    
                     HStack {
                         Text("To: \(vendingMachine.name), \(vendingMachine.street)")
                         Spacer()
