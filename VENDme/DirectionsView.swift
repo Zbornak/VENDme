@@ -7,7 +7,6 @@
 
 import CoreLocation
 import CoreLocationUI
-import MapKit
 import SwiftUI
 
 struct DirectionsView: View {
