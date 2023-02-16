@@ -24,7 +24,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func requestLocation() {
-        manager.requestLocation()
+        //manager.requestLocation()
+        manager.requestAlwaysAuthorization()
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

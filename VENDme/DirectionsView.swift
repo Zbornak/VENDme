@@ -27,7 +27,7 @@ struct DirectionsView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: [vendingMachine]) { vendingMachine in
+                Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow), annotationItems: [vendingMachine]) { vendingMachine in
                     MapAnnotation(coordinate: vendingMachine.coordinates) {
                             Image(systemName: "lightswitch.off")
                                 .frame(width: 20, height: 20)
@@ -44,18 +44,6 @@ struct DirectionsView: View {
                         } else {
                             TextField("enter your location", text: $currentLocation)
                         }
-                    }
-                    
-                    HStack {
-                        LocationButton(.shareCurrentLocation) {
-                            locationManager.requestLocation()
-                        }
-                        .cornerRadius(30)
-                        .labelStyle(.iconOnly)
-                        .foregroundColor(.white)
-                        
-                        Text("or use my location")
-                        Spacer()
                     }
                     
                     HStack {
