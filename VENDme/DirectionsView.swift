@@ -39,11 +39,7 @@ struct DirectionsView: View {
                 VStack {
                     HStack {
                         Text("From:")
-                        if let location = locationManager.location {
-                            Text("\(location.latitude), \(location.longitude)")
-                        } else {
-                            TextField("enter your location", text: $currentLocation)
-                        }
+                        TextField("enter your location", text: $currentLocation)
                     }
                     
                     HStack {
