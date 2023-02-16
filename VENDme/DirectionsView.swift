@@ -20,36 +20,45 @@ struct DirectionsView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                HStack {
-                    Text("From:")
-                    TextField("Current location", text: $currentLocation)
-                }
+            ZStack {
+                DirectionsMapView(vendingMachines: VendingMachines(), userFavourites: UserFavourites(), locationManager: LocationManager())
                 
-                HStack {
-                    LocationButton(.shareCurrentLocation) {
-                        locationManager.requestLocation()
+                VStack {
+                    HStack {
+                        Text("From:")
+                        TextField("Current location", text: $currentLocation)
                     }
-                    .cornerRadius(30)
-                    .labelStyle(.iconOnly)
-                    .foregroundColor(.white)
                     
-                    Text("Use current location")
-                    Spacer()
-                }
-                
-                HStack {
-                    Text("To:")
-                    TextField("To", text: $desiredLocation)
-                    Image(systemName: "arrow.triangle.swap")
-                }
-                .toolbar {
-                    Button("Done") {
-                        dismiss()
+                    HStack {
+                        LocationButton(.shareCurrentLocation) {
+                            locationManager.requestLocation()
+                        }
+                        .cornerRadius(30)
+                        .labelStyle(.iconOnly)
+                        .foregroundColor(.white)
+                        
+                        Text("Use current location")
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        Text("To:")
+                        TextField("To", text: $desiredLocation)
+                        Image(systemName: "arrow.triangle.swap")
+                    }
+                    .toolbar {
+                        Button("Done") {
+                            dismiss()
+                        }
                     }
                 }
+                .padding()
+                .background(Color(red: 254.0 / 255.0, green: 222.0 / 255.0, blue: 121.0 / 255.0))
+                .opacity(0.9)
+                .cornerRadius(10)
+                .shadow(radius: 10)
+                .padding()
             }
-            .padding()
         }
     }
 }
