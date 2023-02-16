@@ -24,17 +24,6 @@ struct DirectionsView: View {
         span: MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
     )
     
-    //put user location in "from:" text field
-    @State private var showUserLocation = false
-    
-    var userLatitude: Double {
-        return locationManager.location?.latitude ?? 36.983341312795126
-    }
-        
-    var userLongitude: Double {
-        return locationManager.location?.longitude ?? 138.25980299484613
-    }
-    
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
@@ -50,13 +39,16 @@ struct DirectionsView: View {
                 VStack {
                     HStack {
                         Text("From:")
-                        TextField(showUserLocation ? "\(userLatitude), \(userLongitude)" : "enter yout current location", text: $currentLocation)
+                        if let location = locationManager.location {
+                            Text("\(location.latitude), \(location.longitude)")
+                        } else {
+                            TextField("enter your location", text: $currentLocation)
+                        }
                     }
                     
                     HStack {
                         LocationButton(.shareCurrentLocation) {
                             locationManager.requestLocation()
-                            showUserLocation = true
                         }
                         .cornerRadius(30)
                         .labelStyle(.iconOnly)

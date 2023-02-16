@@ -39,12 +39,6 @@ struct MapView: View {
                     .fontWeight(.bold)
                 
                 Spacer()
-                
-                if let location = locationManager.location {
-                    Text("\(location.latitude), \(location.longitude)")
-                        .fontWeight(.bold)
-                        .padding(.trailing)
-                }
             }
             
             Map(coordinateRegion: useUserLocation ? $locationManager.region : $region, showsUserLocation: true, annotationItems: vendingMachines.machines) { vendingMachine in
