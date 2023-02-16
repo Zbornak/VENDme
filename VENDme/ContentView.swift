@@ -157,7 +157,7 @@ struct ContentView: View {
                         .stroke(.black, lineWidth: 1))
                         .sheet(isPresented: $showingDirectionsView) {
                             DirectionsView()
-                                .presentationDetents([.medium, .large])
+                                .presentationDetents([.fraction(0.85)])
                                 .presentationDragIndicator(.hidden)
                         }
                         
@@ -288,7 +288,7 @@ struct ContentView: View {
                         }
                         .sheet(isPresented: $showingReportView) {
                             ReportView()
-                                .presentationDetents([.medium, .large])
+                                .presentationDetents([.fraction(0.85)])
                                 .presentationDragIndicator(.hidden)
                         }
                     }
