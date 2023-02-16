@@ -55,8 +55,8 @@ struct DirectionsView: View {
                     
                     HStack {
                         LocationButton(.shareCurrentLocation) {
-                            showUserLocation = true
                             locationManager.requestLocation()
+                            showUserLocation = true
                         }
                         .cornerRadius(30)
                         .labelStyle(.iconOnly)
