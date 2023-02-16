@@ -156,8 +156,8 @@ struct ContentView: View {
                         .overlay(RoundedRectangle(cornerRadius: 25)
                         .stroke(.black, lineWidth: 1))
                         .sheet(isPresented: $showingDirectionsView) {
-                            DirectionsView(locationManager: LocationManager())
-                                .presentationDetents([.fraction(0.85)])
+                            DirectionsView(vendingMachines: VendingMachines(), userFavourites: UserFavourites(), locationManager: LocationManager())
+                                .presentationDetents([.fraction(0.95)])
                                 .presentationDragIndicator(.hidden)
                         }
                         
@@ -288,7 +288,7 @@ struct ContentView: View {
                         }
                         .sheet(isPresented: $showingReportView) {
                             ReportView()
-                                .presentationDetents([.fraction(0.85)])
+                                .presentationDetents([.fraction(0.50)])
                                 .presentationDragIndicator(.hidden)
                         }
                     }
