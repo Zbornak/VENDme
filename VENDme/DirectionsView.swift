@@ -27,6 +27,14 @@ struct DirectionsView: View {
     //put user location in "from:" text field
     @State private var showUserLocation = false
     
+    var userLatitude: Double {
+        return locationManager.location?.latitude ?? 36.983341312795126
+    }
+        
+    var userLongitude: Double {
+        return locationManager.location?.longitude ?? 138.25980299484613
+    }
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
