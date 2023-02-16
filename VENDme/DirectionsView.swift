@@ -28,7 +28,7 @@ struct DirectionsView: View {
         NavigationView {
             ZStack(alignment: .bottom) {
                 Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: [vendingMachine]) { vendingMachine in
-                    MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
+                    MapAnnotation(coordinate: vendingMachine.coordinates) {
                             Image(systemName: "lightswitch.off")
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.black)
