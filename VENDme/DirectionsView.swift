@@ -45,7 +45,6 @@ struct DirectionsView: View {
                     HStack {
                         Text("To:")
                         TextField("To", text: $desiredLocation)
-                        Image(systemName: "arrow.triangle.swap")
                     }
                     .toolbar {
                         Button {
