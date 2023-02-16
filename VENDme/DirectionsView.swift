@@ -36,10 +36,14 @@ struct DirectionsView: View {
                     }
                     .ignoresSafeArea()
                 
-                VStack {
+                VStack(alignment: .leading) {
+                    Text("\(vendingMachine.street)")
+                    Text("\(vendingMachine.city)")
+                    
                     HStack {
-                        Text("To: \(vendingMachine.name), \(vendingMachine.street)")
+                        Text("\(vendingMachine.region)")
                         Spacer()
+                        Image(systemName: "info.square")
                     }
                     .toolbar {
                         Button {
