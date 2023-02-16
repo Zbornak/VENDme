@@ -10,6 +10,7 @@
 		1937FE01299A48BD001426F8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937FE00299A48BD001426F8 /* LocationManager.swift */; };
 		1943FB742997F4F700E1A6D8 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1943FB732997F4F700E1A6D8 /* FavouritesView.swift */; };
 		198AE9A8299BE63D00CA8DCD /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198AE9A7299BE63D00CA8DCD /* AddView.swift */; };
+		198CB72D299E38B90088C9BA /* DirectionsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198CB72C299E38B90088C9BA /* DirectionsMapView.swift */; };
 		19B8CB122997A9C100BD72C8 /* VENDmeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB112997A9C100BD72C8 /* VENDmeApp.swift */; };
 		19B8CB142997A9C100BD72C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB132997A9C100BD72C8 /* ContentView.swift */; };
 		19B8CB162997A9C300BD72C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B8CB152997A9C300BD72C8 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		1937FE00299A48BD001426F8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1943FB732997F4F700E1A6D8 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		198AE9A7299BE63D00CA8DCD /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		198CB72C299E38B90088C9BA /* DirectionsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsMapView.swift; sourceTree = "<group>"; };
 		19B8CB0E2997A9C100BD72C8 /* VENDme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VENDme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B8CB112997A9C100BD72C8 /* VENDmeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VENDmeApp.swift; sourceTree = "<group>"; };
 		19B8CB132997A9C100BD72C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				198AE9A7299BE63D00CA8DCD /* AddView.swift */,
 				19B90384299CFD6300D8A70B /* FeaturedView.swift */,
 				19B90386299D211200D8A70B /* DirectionsView.swift */,
+				198CB72C299E38B90088C9BA /* DirectionsMapView.swift */,
 				19B90388299D218B00D8A70B /* ReportView.swift */,
 				19C45484299D2AD2001B7B66 /* RatingView.swift */,
 				19B8CB1F2997AA6C00BD72C8 /* VendingMachine.swift */,
@@ -181,6 +184,7 @@
 				19B8CB122997A9C100BD72C8 /* VENDmeApp.swift in Sources */,
 				19B8CB262997C96500BD72C8 /* MapView.swift in Sources */,
 				19B90383299CEDF400D8A70B /* UserFavourites.swift in Sources */,
+				198CB72D299E38B90088C9BA /* DirectionsMapView.swift in Sources */,
 				19C45485299D2AD2001B7B66 /* RatingView.swift in Sources */,
 				1937FE01299A48BD001426F8 /* LocationManager.swift in Sources */,
 				198AE9A8299BE63D00CA8DCD /* AddView.swift in Sources */,
