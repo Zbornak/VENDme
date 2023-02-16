@@ -23,22 +23,6 @@ struct MapView: View {
     
     var body: some View {
         VStack(alignment: .trailing) {
-            Button {
-                //stuff here
-            } label: {
-                HStack {
-                    Image(systemName: "location.circle")
-                    Text("Go to my location")
-                }
-            }
-            .fontWeight(.bold)
-            .buttonStyle(.borderedProminent)
-            .tint(.white)
-            .foregroundColor(.black)
-            .overlay(RoundedRectangle(cornerRadius: 25)
-            .stroke(.black, lineWidth: 1))
-            .padding(.trailing)
-            
             Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: vendingMachines.machines) { vendingMachine in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.latitude, longitude: vendingMachine.longitude)) {
                     NavigationLink(destination: ContentView(vendingMachine: vendingMachine, userFavourites: userFavourites)) {
