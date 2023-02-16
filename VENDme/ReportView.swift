@@ -14,8 +14,12 @@ struct ReportView: View {
         NavigationView {
             Text("Report a problem")
                 .toolbar {
-                    Button("Done") {
+                    Button {
                         dismiss()
+                    } label: {
+                        Image(systemName: "multiply")
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
                 }
             }
         }
