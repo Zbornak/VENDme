@@ -55,7 +55,7 @@ struct DirectionsView: View {
                     }
                     
                     HStack {
-                        Text("To \(vendingMachine.name), \(vendingMachine.street)")
+                        Text("To: \(vendingMachine.name), \(vendingMachine.street)")
                         Spacer()
                     }
                     .toolbar {
