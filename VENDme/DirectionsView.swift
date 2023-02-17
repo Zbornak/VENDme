@@ -32,10 +32,18 @@ struct DirectionsView: View {
                 Button {
                     self.showingWrittenDirections.toggle()
                 } label: {
-                    Text("Show directions")
+                    HStack {
+                        Image(systemName: "figure.walk")
+                        Text("Show step-by-step directions")
+                    }
                 }
                 .disabled(directions.isEmpty)
-                .padding()
+                .fontWeight(.bold)
+                .buttonStyle(.borderedProminent)
+                .tint(.white)
+                .foregroundColor(.black)
+                .overlay(RoundedRectangle(cornerRadius: 25)
+                .stroke(.black, lineWidth: 1))
             }
             .toolbar {
                 Button {
@@ -106,7 +114,7 @@ struct DirectionsMapView: UIViewRepresentable {
         let directionsRequest = MKDirections.Request()
         directionsRequest.source = MKMapItem(placemark: userPosition)
         directionsRequest.destination = MKMapItem(placemark: VMPosition)
-        directionsRequest.transportType = .automobile
+        directionsRequest.transportType = .walking
         
         let directions = MKDirections(request: directionsRequest)
         directions.calculate { response, error in
