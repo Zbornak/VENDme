@@ -74,9 +74,9 @@ struct DirectionsView: View {
             }
         }
         
-        let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.location?.latitude ?? 0.0, longitude: locationManager.location?.longitude ?? 0.0))
+        let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.location?.latitude ?? 0.0, longitude: locationManager.location?.longitude ?? 0.0))
         
-        let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.coordinates.latitude, longitude: vendingMachine.coordinates.longitude))
+        let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.coordinates.latitude, longitude: vendingMachine.coordinates.longitude))
     }
 }
 
