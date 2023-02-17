@@ -49,6 +49,14 @@ struct VENDmeApp: App {
                     Image(systemName: "rosette")
                     Text("Featured")
                 }
+                
+                NavigationView {
+                    StampsView()
+                }
+                .tabItem {
+                    Image(systemName: "magazine")
+                    Text("Stamps")
+                }
             }
         }
     }

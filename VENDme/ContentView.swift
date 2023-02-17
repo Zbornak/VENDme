@@ -235,7 +235,7 @@ struct ContentView: View {
                             Button {
                                 //stuff to come here
                             } label: {
-                                Image(systemName: "hand.raised.fingers.spread.fill")
+                                Image(systemName: "magazine")
                                 Text("Check in")
                             }
                             .fontWeight(.bold)
