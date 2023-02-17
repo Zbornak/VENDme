@@ -34,7 +34,7 @@ struct DirectionsView: View {
                 } label: {
                     HStack {
                         Image(systemName: "figure.walk")
-                        Text("Show step-by-step directions")
+                        Text("Step-by-step")
                     }
                 }
                 .disabled(directions.isEmpty)
