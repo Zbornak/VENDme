@@ -97,3 +97,17 @@ struct DirectionsView_Previews: PreviewProvider {
         DirectionsView(vendingMachine: VendingMachine.example, userFavourites: UserFavourites(), locationManager: LocationManager())
     }
 }
+
+struct DirectionsMapView: UIViewRepresentable {
+    typealias UIViewType = MKMapView
+    
+    func makeUIView(context: Context) -> MKMapView {
+        let directionsMapView = MKMapView()
+        return directionsMapView
+    }
+    
+    func updateUIView(_ uiView: MKMapView, context: Context) {
+    }
+    
+    
+}
