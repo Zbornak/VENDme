@@ -31,12 +31,12 @@ struct DirectionsView: View {
             ZStack(alignment: .bottom) {
                 Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow), annotationItems: [vendingMachine]) { vendingMachine in
                     MapAnnotation(coordinate: vendingMachine.coordinates) {
-                            Image(systemName: "lightswitch.off")
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.black)
-                        }
+                        Image(systemName: "lightswitch.off")
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(.black)
                     }
-                    .ignoresSafeArea()
+                }
+                .ignoresSafeArea()
                 
                 VStack(alignment: .leading) {
                     Text("\(vendingMachine.street)")
@@ -74,9 +74,10 @@ struct DirectionsView: View {
             }
         }
         
-        let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.location?.latitude ?? 0.0, longitude: locationManager.location?.longitude ?? 0.0))
+        let userPosition = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.location?.latitude ?? 0.0, longitude: locationManager.location?.longitude ?? 0.0))
         
-        let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.coordinates.latitude, longitude: vendingMachine.coordinates.longitude))
+        let VMPosition = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.coordinates.latitude, longitude: vendingMachine.coordinates.longitude))
+        
     }
 }
 
