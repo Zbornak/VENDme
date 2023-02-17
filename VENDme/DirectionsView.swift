@@ -33,7 +33,7 @@ struct DirectionsView: View {
                     self.showingWrittenDirections.toggle()
                 } label: {
                     HStack {
-                        Image(systemName: "figure.walk")
+                        Image(systemName: "figure.walk.motion")
                         Text("Step-by-step")
                     }
                 }
