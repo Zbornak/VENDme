@@ -24,6 +24,8 @@ struct DirectionsView: View {
         span: MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
     )
     
+    @State private var showingWrittenDirections = false
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
@@ -39,6 +41,7 @@ struct DirectionsView: View {
                 VStack(alignment: .leading) {
                     Text("\(vendingMachine.street)")
                     Text("\(vendingMachine.city)")
+                    Text("Lat: \(vendingMachine.coordinates.latitude), Long: \(vendingMachine.coordinates.longitude)")
                     
                     HStack {
                         Text("\(vendingMachine.region)")
@@ -70,6 +73,10 @@ struct DirectionsView: View {
                 .padding()
             }
         }
+        
+        let p2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.location?.latitude ?? 0.0, longitude: locationManager.location?.longitude ?? 0.0))
+        
+        let p1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.coordinates.latitude, longitude: vendingMachine.coordinates.longitude))
     }
 }
 
