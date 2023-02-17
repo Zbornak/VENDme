@@ -73,22 +73,6 @@ struct DirectionsView: View {
                 .padding()
             }
         }
-        
-//        let userPosition = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.location?.latitude ?? 0.0, longitude: locationManager.location?.longitude ?? 0.0))
-//        
-//        let VMPosition = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.coordinates.latitude, longitude: vendingMachine.coordinates.longitude))
-//        
-//        let directionsRequest = MKDirections.Request()
-//        directionsRequest.source = MKMapItem(placemark: userPosition)
-//        directionsRequest.destination = MKMapItem(placemark: VMPosition)
-//        directionsRequest.transportType = .walking
-//        
-//        let directions = MKDirections(request: directionsRequest)
-//        directions.calculate { response, error in
-//            guard let route = response?.routes.first else { return }
-//            
-//        }
-        
     }
 }
 
@@ -109,5 +93,18 @@ struct DirectionsMapView: UIViewRepresentable {
     func updateUIView(_ uiView: MKMapView, context: Context) {
     }
     
-    
+    //        let userPosition = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.location?.latitude ?? 0.0, longitude: locationManager.location?.longitude ?? 0.0))
+    //
+    //        let VMPosition = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.coordinates.latitude, longitude: vendingMachine.coordinates.longitude))
+    //
+    //        let directionsRequest = MKDirections.Request()
+    //        directionsRequest.source = MKMapItem(placemark: userPosition)
+    //        directionsRequest.destination = MKMapItem(placemark: VMPosition)
+    //        directionsRequest.transportType = .walking
+    //
+    //        let directions = MKDirections(request: directionsRequest)
+    //        directions.calculate { response, error in
+    //            guard let route = response?.routes.first else { return }
+    //
+    //        }
 }
