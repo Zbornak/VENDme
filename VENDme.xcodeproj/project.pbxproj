@@ -28,6 +28,7 @@
 /* Begin PBXFileReference section */
 		1937FE00299A48BD001426F8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1943FB732997F4F700E1A6D8 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		1955F432299FAE8C00661316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		198AE9A7299BE63D00CA8DCD /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		19B8CB0E2997A9C100BD72C8 /* VENDme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VENDme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B8CB112997A9C100BD72C8 /* VENDmeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VENDmeApp.swift; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		19B8CB102997A9C100BD72C8 /* VENDme */ = {
 			isa = PBXGroup;
 			children = (
+				1955F432299FAE8C00661316 /* Info.plist */,
 				19B8CB112997A9C100BD72C8 /* VENDmeApp.swift */,
 				19B8CB132997A9C100BD72C8 /* ContentView.swift */,
 				19B8CB252997C96500BD72C8 /* MapView.swift */,
@@ -317,6 +319,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"VENDme/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VENDme/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "VENDme wants to help find Vending Machines near you.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "VENDme wants to help find Vending Machines near you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -347,6 +350,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"VENDme/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VENDme/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "VENDme wants to help find Vending Machines near you.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "VENDme wants to help find Vending Machines near you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

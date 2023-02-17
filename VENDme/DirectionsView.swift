@@ -19,60 +19,51 @@ struct DirectionsView: View {
     
     @ObservedObject var locationManager: LocationManager
     
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
-        span: MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
-    )
-    
     @State private var showingWrittenDirections = false
+    
+    @State private var directions: [String] = []
     
     var body: some View {
         NavigationView {
-            ZStack(alignment: .bottom) {
-                Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow), annotationItems: [vendingMachine]) { vendingMachine in
-                    MapAnnotation(coordinate: vendingMachine.coordinates) {
-                        Image(systemName: "lightswitch.off")
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.black)
-                    }
-                }
-                .ignoresSafeArea()
+            VStack {
+                DirectionsMapView(vendingMachine: vendingMachine, userFavourites: UserFavourites(), locationManager: LocationManager(), directions: $directions)
+                    .ignoresSafeArea()
                 
-                VStack(alignment: .leading) {
-                    Text("\(vendingMachine.street)")
-                    Text("\(vendingMachine.city)")
-                    Text("Lat: \(vendingMachine.coordinates.latitude), Long: \(vendingMachine.coordinates.longitude)")
-                    
-                    HStack {
-                        Text("\(vendingMachine.region)")
-                        Spacer()
-                        Button {
-                            //stuff here
-                        } label: {
-                            HStack {
-                                Text("Directions")
-                                Image(systemName: "info.square")
-                            }
-                        }
-                    }
-                    .toolbar {
-                        Button {
-                            dismiss()
-                        } label: {
-                            Image(systemName: "multiply")
-                                .fontWeight(.bold)
-                                .foregroundColor(.black)
-                        }
-                    }
+                Button {
+                    self.showingWrittenDirections.toggle()
+                } label: {
+                    Text("Show directions")
                 }
-                .padding()
-                .background(Color(red: 254.0 / 255.0, green: 222.0 / 255.0, blue: 121.0 / 255.0))
-                .opacity(0.9)
-                .cornerRadius(10)
-                .shadow(radius: 10)
+                .disabled(directions.isEmpty)
                 .padding()
             }
+            .toolbar {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "multiply")
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                }
+            }
         }
+        .sheet(isPresented: $showingWrittenDirections, content: {
+            VStack {
+                Text("Directions")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding()
+                    
+                Divider().background(.blue)
+                    
+                List {
+                    ForEach(0..<self.directions.count, id: \.self) { direction in
+                            Text(self.directions[direction])
+                                .padding()
+                    }
+                }
+            }
+        })
     }
 }
 
@@ -83,28 +74,62 @@ struct DirectionsView_Previews: PreviewProvider {
 }
 
 struct DirectionsMapView: UIViewRepresentable {
+    let vendingMachine: VendingMachine
+    
+    @ObservedObject var userFavourites: UserFavourites
+    
+    @ObservedObject var locationManager: LocationManager
+    
     typealias UIViewType = MKMapView
+    
+    @Binding var directions: [String]
+    
+    
+    func makeCoordinator() -> DirectionsMapViewCoordinator {
+        return DirectionsMapViewCoordinator()
+    }
     
     func makeUIView(context: Context) -> MKMapView {
         let directionsMapView = MKMapView()
+        directionsMapView.delegate = context.coordinator
+        
+        let region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 36.983341312795126, longitude: 138.25980299484613),
+            span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+        
+        directionsMapView.setRegion(region, animated: true)
+        
+        let userPosition = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.location?.latitude ?? 0.0, longitude: locationManager.location?.longitude ?? 0.0))
+        
+        let VMPosition = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.coordinates.latitude, longitude: vendingMachine.coordinates.longitude))
+        
+        let directionsRequest = MKDirections.Request()
+        directionsRequest.source = MKMapItem(placemark: userPosition)
+        directionsRequest.destination = MKMapItem(placemark: VMPosition)
+        directionsRequest.transportType = .automobile
+        
+        let directions = MKDirections(request: directionsRequest)
+        directions.calculate { response, error in
+            guard let route = response?.routes.first else { return }
+            directionsMapView.addAnnotations([userPosition, VMPosition])
+            directionsMapView.addOverlay(route.polyline)
+            directionsMapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),animated: true)
+            
+            self.directions = route.steps.map { $0.instructions }.filter { !$0.isEmpty }
+        }
+        
         return directionsMapView
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
     }
     
-    //        let userPosition = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: locationManager.location?.latitude ?? 0.0, longitude: locationManager.location?.longitude ?? 0.0))
-    //
-    //        let VMPosition = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: vendingMachine.coordinates.latitude, longitude: vendingMachine.coordinates.longitude))
-    //
-    //        let directionsRequest = MKDirections.Request()
-    //        directionsRequest.source = MKMapItem(placemark: userPosition)
-    //        directionsRequest.destination = MKMapItem(placemark: VMPosition)
-    //        directionsRequest.transportType = .walking
-    //
-    //        let directions = MKDirections(request: directionsRequest)
-    //        directions.calculate { response, error in
-    //            guard let route = response?.routes.first else { return }
-    //
-    //        }
+    class DirectionsMapViewCoordinator: NSObject, MKMapViewDelegate {
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = .blue
+            renderer.lineWidth = 5
+            return renderer
+        }
+    }
 }
