@@ -32,6 +32,7 @@ struct ReportView: View {
                     .submitLabel(.send)
                     .onSubmit {
                         print("hello")
+                        //add code that will submit contents of TextField
                     }
                 
                 TextField("Tell us what's wrong", text: $reportMessage, axis: .vertical)
