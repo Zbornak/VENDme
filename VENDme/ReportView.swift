@@ -16,8 +16,9 @@ struct ReportView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack (alignment: .leading) {
                 Text("Report a problem with \(vendingMachine.name)")
+                    .padding()
                     .fontWeight(.bold)
                     .toolbar {
                         Button {
@@ -29,7 +30,9 @@ struct ReportView: View {
                         }
                     }
                 
-                TextField("Tell us what's wrong", text: $reportMessage)
+                TextField("Tell us what's wrong", text: $reportMessage, axis: .vertical)
+                    .textFieldStyle(.roundedBorder)
+                    .lineLimit(5)
                     .padding()
                 
                 Button {
@@ -45,7 +48,8 @@ struct ReportView: View {
                 .tint(.white)
                 .foregroundColor(.black)
                 .overlay(RoundedRectangle(cornerRadius: 25)
-                    .stroke(.black, lineWidth: 1))
+                .stroke(.black, lineWidth: 1))
+                .padding()
             }
         }
     }
