@@ -287,7 +287,7 @@ struct ContentView: View {
                             }
                         }
                         .sheet(isPresented: $showingReportView) {
-                            ReportView()
+                            ReportView(vendingMachine: vendingMachine)
                                 .presentationDetents([.fraction(0.50)])
                                 .presentationDragIndicator(.hidden)
                         }
