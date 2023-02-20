@@ -29,27 +29,15 @@ struct ReportView: View {
                                 .foregroundColor(.black)
                         }
                     }
+                    .submitLabel(.send)
+                    .onSubmit {
+                        print("hello")
+                    }
                 
                 TextField("Tell us what's wrong", text: $reportMessage, axis: .vertical)
                     .textFieldStyle(.roundedBorder)
                     .lineLimit(5)
                     .padding()
-                
-                Button {
-                    //stuff to come here
-                } label: {
-                    HStack {
-                        Image(systemName: "exclamationmark.bubble")
-                        Text("Submit")
-                    }
-                }
-                .fontWeight(.bold)
-                .buttonStyle(.borderedProminent)
-                .tint(.white)
-                .foregroundColor(.black)
-                .overlay(RoundedRectangle(cornerRadius: 25)
-                .stroke(.black, lineWidth: 1))
-                .padding()
             }
         }
     }
