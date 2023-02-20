@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1937FE01299A48BD001426F8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937FE00299A48BD001426F8 /* LocationManager.swift */; };
 		1943FB742997F4F700E1A6D8 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1943FB732997F4F700E1A6D8 /* FavouritesView.swift */; };
-		1955F434299FE3E100661316 /* StampsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F433299FE3E100661316 /* StampsView.swift */; };
-		196E6EE529A3C05800E8C25C /* Stamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E6EE429A3C05800E8C25C /* Stamp.swift */; };
 		198AE9A8299BE63D00CA8DCD /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198AE9A7299BE63D00CA8DCD /* AddView.swift */; };
 		19B8CB122997A9C100BD72C8 /* VENDmeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB112997A9C100BD72C8 /* VENDmeApp.swift */; };
 		19B8CB142997A9C100BD72C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B8CB132997A9C100BD72C8 /* ContentView.swift */; };
@@ -31,8 +29,6 @@
 		1937FE00299A48BD001426F8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1943FB732997F4F700E1A6D8 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		1955F432299FAE8C00661316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		1955F433299FE3E100661316 /* StampsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampsView.swift; sourceTree = "<group>"; };
-		196E6EE429A3C05800E8C25C /* Stamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp.swift; sourceTree = "<group>"; };
 		198AE9A7299BE63D00CA8DCD /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		19B8CB0E2997A9C100BD72C8 /* VENDme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VENDme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B8CB112997A9C100BD72C8 /* VENDmeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VENDmeApp.swift; sourceTree = "<group>"; };
@@ -90,8 +86,6 @@
 				19B90386299D211200D8A70B /* DirectionsView.swift */,
 				19B90388299D218B00D8A70B /* ReportView.swift */,
 				19C45484299D2AD2001B7B66 /* RatingView.swift */,
-				196E6EE429A3C05800E8C25C /* Stamp.swift */,
-				1955F433299FE3E100661316 /* StampsView.swift */,
 				19B8CB1F2997AA6C00BD72C8 /* VendingMachine.swift */,
 				19B8CB212997AB6100BD72C8 /* VendingMachines.swift */,
 				1937FE00299A48BD001426F8 /* LocationManager.swift */,
@@ -192,11 +186,9 @@
 				19C45485299D2AD2001B7B66 /* RatingView.swift in Sources */,
 				1937FE01299A48BD001426F8 /* LocationManager.swift in Sources */,
 				198AE9A8299BE63D00CA8DCD /* AddView.swift in Sources */,
-				1955F434299FE3E100661316 /* StampsView.swift in Sources */,
 				19B8CB202997AA6C00BD72C8 /* VendingMachine.swift in Sources */,
 				1943FB742997F4F700E1A6D8 /* FavouritesView.swift in Sources */,
 				19B8CB222997AB6100BD72C8 /* VendingMachines.swift in Sources */,
-				196E6EE529A3C05800E8C25C /* Stamp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
