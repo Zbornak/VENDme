@@ -16,9 +16,9 @@ struct Stamp: View {
                 Image(vendingMachine.mainPicture)
                     .resizable()
                     .scaledToFit()
-                    .cornerRadius(100)
-                    .overlay(RoundedRectangle(cornerRadius: 100)
-                        .stroke(Color(red: 212 / 255, green: 175 / 255, blue: 55 / 255), lineWidth: 10))
+                    .cornerRadius(110)
+                    .overlay(RoundedRectangle(cornerRadius: 110)
+                    .stroke(.red, lineWidth: 10))
                     .shadow(radius: 10)
                     .frame(maxWidth: geometry.size.width * 1.0)
                     .padding()
@@ -30,10 +30,12 @@ struct Stamp: View {
                     Image(systemName: "checkmark.seal")
                         .resizable()
                         .scaledToFit()
+                        .shadow(radius: 10)
                         .frame(maxWidth: geometry.size.width * 0.3)
                         .padding(.leading)
-                        .foregroundColor(Color(red: 212 / 255, green: 175 / 255, blue: 55 / 255))
+                        .foregroundColor(.red)
                 }
+                .padding()
             }
         }
     }
