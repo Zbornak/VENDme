@@ -50,6 +50,7 @@ struct ContentView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: geometry.size.width * 1.0)
+                        .shadow(radius: 10)
                 } else if imageTwoShowing {
                     Image(vendingMachine.picture2)
                         .resizable()
