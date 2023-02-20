@@ -14,6 +14,8 @@ struct AddView: View {
     
     @State private var isInUse = true
     
+    @State private var rating = 3
+    
     var body: some View {
         Form {
             Section {
@@ -64,11 +66,9 @@ struct AddView: View {
             
             Section {
                 HStack {
-                    Image(systemName: "star")
-                    Image(systemName: "star")
-                    Image(systemName: "star")
-                    Image(systemName: "star")
-                    Image(systemName: "star")
+                    Text("Rate this machine:")
+                    Spacer()
+                    RatingView(rating: $rating)
                 }
             } header: {
                 Text("rate this vending machine")
