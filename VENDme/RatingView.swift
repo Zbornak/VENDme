@@ -9,6 +9,9 @@ import SwiftUI
 
 struct RatingView: View {
     @Binding var rating: Int
+    @Binding var numberOfRatings: Int
+    @Binding var userHasLeftRating: Bool
+    
     var label = ""
     var maximumRating = 5
     var offImage = Image(systemName: "star")
@@ -24,6 +27,8 @@ struct RatingView: View {
                 image(for: number)
                     .onTapGesture {
                         rating = number
+                        numberOfRatings += 1
+                        userHasLeftRating = true
                 }
             }
         }
@@ -40,6 +45,6 @@ struct RatingView: View {
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
-        RatingView(rating: .constant(4))
+        RatingView(rating: .constant(4), numberOfRatings: .constant(1), userHasLeftRating: .constant(true))
     }
 }

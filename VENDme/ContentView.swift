@@ -21,6 +21,7 @@ struct ContentView: View {
     @State private var showingReportView = false
     
     @State private var rating = 3
+    @State private var numberOfRatings = 0
     
     func typeImageChoice() -> String {
         if vendingMachine.type == "Food" {
@@ -44,6 +45,8 @@ struct ContentView: View {
     
     @State private var userCheckIns = 0
     @State private var userCheckedIn = false
+    
+    @State private var userHasLeftRating = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -199,7 +202,7 @@ struct ContentView: View {
                             Image(systemName: "star.fill")
                         }
                         
-                        Text("(\(vendingMachine.numberOfRatings))")
+                        Text("(\(numberOfRatings))")
                     }
                 }
                 .padding(.horizontal)
@@ -255,7 +258,11 @@ struct ContentView: View {
                         HStack {
                             Text("Rate this machine:")
                             Spacer()
-                            RatingView(rating: $rating)
+                            if !userHasLeftRating {
+                                RatingView(rating: $rating, numberOfRatings: $numberOfRatings, userHasLeftRating: $userHasLeftRating)
+                            } else {
+                                Text("Thank-you")
+                            }
                         }
                         
                     } header: {

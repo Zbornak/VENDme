@@ -35,7 +35,7 @@ struct VENDmeApp: App {
                 }
                 
                 NavigationView {
-                    AddView()
+                    AddView(numberOfRatings: .constant(0), userHasLeftRating: .constant(true))
                 }
                 .tabItem {
                     Image(systemName: "plus")

@@ -18,6 +18,10 @@ struct AddView: View {
     
     @State private var machineSubmitted = false
     
+    @Binding var numberOfRatings: Int
+    
+    @Binding var userHasLeftRating: Bool
+    
     var body: some View {
         if machineSubmitted == false {
             Form {
@@ -71,7 +75,7 @@ struct AddView: View {
                     HStack {
                         Text("Rate this machine:")
                         Spacer()
-                        RatingView(rating: $rating)
+                        RatingView(rating: $rating, numberOfRatings: $numberOfRatings, userHasLeftRating: $userHasLeftRating)
                     }
                 } header: {
                     Text("rate this vending machine")
@@ -103,7 +107,7 @@ struct AddView: View {
             VStack {
                 Image("vending_machine_pixel_art")
                 
-                Text("Many thanks for your submission, someone will check it out and it should be live soon!")
+                Text("Many thanks for your submission, someone will check it out and it should be live soon.")
                     .padding()
                 
                 Button {
@@ -130,6 +134,6 @@ struct AddView: View {
 
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
-        AddView()
+        AddView(numberOfRatings: .constant(0), userHasLeftRating: .constant(true))
     }
 }
