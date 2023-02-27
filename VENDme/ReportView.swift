@@ -9,36 +9,66 @@ import SwiftUI
 
 struct ReportView: View {
     @Environment(\.dismiss) var dismiss
+    @FocusState private var nameIsFocused: Bool
     
     @State private var reportMessage = ""
+    @State private var userSubmittedReport = false
     
     let vendingMachine: VendingMachine
     
     var body: some View {
         NavigationView {
-            VStack (alignment: .leading) {
-                Text("Report a problem with \(vendingMachine.name)")
-                    .padding()
-                    .fontWeight(.bold)
-                    .toolbar {
-                        Button {
-                            dismiss()
-                        } label: {
-                            Image(systemName: "multiply")
-                                .fontWeight(.bold)
-                                .foregroundColor(.black)
+            if !userSubmittedReport {
+                VStack (alignment: .leading) {
+                    Text("Report a problem with \(vendingMachine.name)")
+                        .padding()
+                        .fontWeight(.bold)
+                        .toolbar {
+                            Button {
+                                dismiss()
+                            } label: {
+                                Image(systemName: "multiply")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.black)
+                            }
+                        }
+                    
+                    TextField("Tell us what's wrong", text: $reportMessage, axis: .vertical)
+                        .textFieldStyle(.roundedBorder)
+                        .lineLimit(5)
+                        .padding()
+                    
+                    Button {
+                        userSubmittedReport = true
+                        nameIsFocused = false
+                    } label: {
+                        HStack {
+                            Image(systemName: "exclamationmark.bubble.fill")
+                            Text("Report")
                         }
                     }
-                    .submitLabel(.send)
-                    .onSubmit {
-                        print("hello")
-                        //add code that will submit contents of TextField
-                    }
-                
-                TextField("Tell us what's wrong", text: $reportMessage, axis: .vertical)
-                    .textFieldStyle(.roundedBorder)
-                    .lineLimit(5)
+                    .fontWeight(.bold)
+                    .buttonStyle(.borderedProminent)
+                    .tint(.white)
+                    .foregroundColor(.black)
+                    .overlay(RoundedRectangle(cornerRadius: 25)
+                        .stroke(.black, lineWidth: 1))
                     .padding()
+                }
+            } else {
+                VStack {
+                    Image("vending_machine_pixel_art")
+                    Text("Many thanks for letting us know.")
+                        .toolbar {
+                            Button {
+                                dismiss()
+                            } label: {
+                                Image(systemName: "multiply")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.black)
+                            }
+                        }
+                }
             }
         }
     }
