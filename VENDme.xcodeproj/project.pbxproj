@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19332E9129ACB746000F511A /* AddVendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19332E9029ACB746000F511A /* AddVendingMachine.swift */; };
 		1937FE01299A48BD001426F8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937FE00299A48BD001426F8 /* LocationManager.swift */; };
 		1943FB742997F4F700E1A6D8 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1943FB732997F4F700E1A6D8 /* FavouritesView.swift */; };
 		198AE9A8299BE63D00CA8DCD /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198AE9A7299BE63D00CA8DCD /* AddView.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19332E9029ACB746000F511A /* AddVendingMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVendingMachine.swift; sourceTree = "<group>"; };
 		1937FE00299A48BD001426F8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1943FB732997F4F700E1A6D8 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		1955F432299FAE8C00661316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				19B8CB212997AB6100BD72C8 /* VendingMachines.swift */,
 				1937FE00299A48BD001426F8 /* LocationManager.swift */,
 				19B90382299CEDF400D8A70B /* UserFavourites.swift */,
+				19332E9029ACB746000F511A /* AddVendingMachine.swift */,
 				19B8CB232997ABB400BD72C8 /* VMInformation.json */,
 				19B8CB152997A9C300BD72C8 /* Assets.xcassets */,
 				19B8CB172997A9C300BD72C8 /* Preview Content */,
@@ -189,6 +192,7 @@
 				19B8CB202997AA6C00BD72C8 /* VendingMachine.swift in Sources */,
 				1943FB742997F4F700E1A6D8 /* FavouritesView.swift in Sources */,
 				19B8CB222997AB6100BD72C8 /* VendingMachines.swift in Sources */,
+				19332E9129ACB746000F511A /* AddVendingMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
