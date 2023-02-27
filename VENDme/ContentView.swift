@@ -167,25 +167,25 @@ struct ContentView: View {
                         
                         Spacer()
                         
-                        if vendingMachine.userRating == 1 {
+                        if rating == 1 {
                             Image(systemName: "star.fill")
                             Image(systemName: "star")
                             Image(systemName: "star")
                             Image(systemName: "star")
                             Image(systemName: "star")
-                        } else if vendingMachine.userRating == 2 {
+                        } else if rating == 2 {
                             Image(systemName: "star.fill")
                             Image(systemName: "star.fill")
                             Image(systemName: "star")
                             Image(systemName: "star")
                             Image(systemName: "star")
-                        } else if vendingMachine.userRating == 3 {
+                        } else if rating == 3 {
                             Image(systemName: "star.fill")
                             Image(systemName: "star.fill")
                             Image(systemName: "star.fill")
                             Image(systemName: "star")
                             Image(systemName: "star")
-                        } else if vendingMachine.userRating == 4 {
+                        } else if rating == 4 {
                             Image(systemName: "star.fill")
                             Image(systemName: "star.fill")
                             Image(systemName: "star.fill")
