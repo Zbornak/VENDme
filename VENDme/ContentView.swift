@@ -42,6 +42,9 @@ struct ContentView: View {
         }
     }
     
+    @State private var userCheckIns = 0
+    @State private var userCheckedIn = false
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -231,12 +234,13 @@ struct ContentView: View {
                         
                         HStack {
                             Image(systemName: "figure.wave")
-                            Text("(\(vendingMachine.checkIns) check-ins)")
+                            Text("(\(userCheckIns) check-in\(userCheckIns == 1 ? "" : "s"))")
                             Spacer()
                             Button {
-                                //stuff to come here
+                                userCheckIns += 1
+                                userCheckedIn = true
                             } label: {
-                                Image(systemName: "magazine")
+                                Image(systemName: userCheckedIn ? "checkmark" : "magazine")
                                 Text("Check in")
                             }
                             .fontWeight(.bold)
@@ -244,7 +248,8 @@ struct ContentView: View {
                             .tint(.white)
                             .foregroundColor(.black)
                             .overlay(RoundedRectangle(cornerRadius: 25)
-                                .stroke(.black, lineWidth: 1))
+                            .stroke(.black, lineWidth: 1))
+                            .disabled(!userCheckedIn ? false : true)
                         }
                         
                         HStack {
