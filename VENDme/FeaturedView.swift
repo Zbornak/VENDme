@@ -15,8 +15,10 @@ struct FeaturedView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                Text("This week's most visited Vending Machines")
+                    .fontWeight(.bold)
                 List {
-                    ForEach(vendingMachines.machines.filter({ userFavourites.favourites.contains($0.id) })) { vendingMachine in
+                    ForEach(vendingMachines.machines) { vendingMachine in
                         NavigationLink {
                             ContentView(vendingMachine: vendingMachine, userFavourites: userFavourites)
                         } label: {
