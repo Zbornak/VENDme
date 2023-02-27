@@ -43,7 +43,7 @@ struct VENDmeApp: App {
                 }
                 
                 NavigationView {
-                    FeaturedView()
+                    FeaturedView(vendingMachines: vendingMachines, userFavourites: userFavourites)
                 }
                 .tabItem {
                     Image(systemName: "rosette")
