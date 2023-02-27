@@ -97,18 +97,6 @@ struct AddView: View {
         }
         .navigationTitle("Add a Vending Machine")
     }
-    
-    func writeJSON(items: [Item]) {
-        do {
-            let fileURL = try FileManager.default.url(for: .desktopDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                .appendingPathComponent("VMInformation.json")
-
-            let encoder = JSONEncoder()
-            try encoder.encode(array).write(to: fileURL)
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
 }
 
 struct AddView_Previews: PreviewProvider {
